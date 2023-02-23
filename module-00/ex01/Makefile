@@ -6,18 +6,18 @@
 #    By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 11:33:05 by hkong             #+#    #+#              #
-#    Updated: 2023/01/20 15:19:56 by hkong            ###   ########.fr        #
+#    Updated: 2023/02/23 15:49:11 by hkong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = megaphone
+NAME = phonebook
 
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = megaphone.cpp
+SRCS = Contact.cpp PhoneBook.cpp main.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 all : $(NAME)
@@ -26,7 +26,7 @@ $(NAME) : $(OBJS)
 	$(CPP) $(CFLAGS) -o $@ $^
 
 %.o: %.cpp
-	$(CPP) $(CFLAGS) -c $< -o $@
+	$(CPP) $(CFLAGS) -I./ $(HEADERS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJS)
