@@ -6,7 +6,7 @@
 #    By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 11:33:05 by hkong             #+#    #+#              #
-#    Updated: 2023/02/24 17:04:25 by hkong            ###   ########.fr        #
+#    Updated: 2023/02/24 18:39:33 by hkong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = phonebook
 
 CPP = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 SRCS = Contact.cpp PhoneBook.cpp main.cpp

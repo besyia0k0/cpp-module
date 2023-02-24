@@ -6,13 +6,16 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 22:59:14 by hkong             #+#    #+#             */
-/*   Updated: 2023/02/24 17:13:30 by hkong            ###   ########.fr       */
+/*   Updated: 2023/02/24 18:38:13 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-int	PhoneBook::phone_book_index_ = 0;
+PhoneBook::PhoneBook() {
+	count_ = 0;
+	index_ = 0;
+}
 
 int	PhoneBook::error(std::string error_msg)
 {
@@ -67,12 +70,13 @@ int	PhoneBook::get_contact(Contact &contact)
 
 void	PhoneBook::save(Contact &contact)
 {
-	phone_book_[phone_book_index_].set_first_name(contact.get_first_name());
-	phone_book_[phone_book_index_].set_last_name(contact.get_last_name());
-	phone_book_[phone_book_index_].set_nickname(contact.get_nickname());
-	phone_book_[phone_book_index_].set_phone_number(contact.get_phone_number());
-	phone_book_[phone_book_index_].set_darkest_secret(contact.get_darkest_secret());
-	phone_book_index_ = (phone_book_index_ + 1) % 8;
+	phone_book_[index_].set_first_name(contact.get_first_name());
+	phone_book_[index_].set_last_name(contact.get_last_name());
+	phone_book_[index_].set_nickname(contact.get_nickname());
+	phone_book_[index_].set_phone_number(contact.get_phone_number());
+	phone_book_[index_].set_darkest_secret(contact.get_darkest_secret());
+	count_ = count_ >= 8 ? count_ : count_ + 1;
+	index_ = (index_ + 1) % 8;
 }
 
 int	PhoneBook::add(void)
@@ -81,7 +85,7 @@ int	PhoneBook::add(void)
 	Contact			contact;
 
 	std::cout << "Enter the information of new contact" << std::endl;
-	std::cout << "It's index will be " << phone_book_index_ << std::endl;
+	std::cout << "It's index will be " << index_ << std::endl;
 	while (PhoneBook::get_contact(contact))
 		std::cout << "Error occured during get_contact; Try Again" << std::endl;
 	PhoneBook::save(contact);
@@ -93,7 +97,7 @@ int	PhoneBook::print_row(int index)
 {
 	std::string	str;
 	
-	if (index < 0 || index >= phone_book_index_) {
+	if (index < 0 || index >= count_) {
 		error("Invalid index; out of range");
 		return (1);
 	}
@@ -129,13 +133,13 @@ int	PhoneBook::print_row(int index)
 int	PhoneBook::print_list(void)
 {
 	std::cout << "******************* list *******************" << std::endl;
-	if (phone_book_index_ == 0)
+	if (count_ == 0)
 		std::cout << "            Phone book is empty.            " << std::endl;
 	else
 	{
 		std::cout << "   index  | firstName| lastName | nickname " << std::endl;
 		std::cout << "---------- ---------- ---------- ----------" << std::endl;
-		for (int i = 0; i < phone_book_index_; i++)
+		for (int i = 0; i < count_; i++)
 			if (print_row(i))
 				return (1);
 	}
@@ -145,23 +149,26 @@ int	PhoneBook::print_list(void)
 
 int	PhoneBook::search(void)
 {
-	int	index = 0;
+	int	index = -1;
+	std::string input;
 	
 	if (print_list()) {
 		std::cout << "UNEXPECTED FATAL ERROR occured during print_list" << std::endl;
 		exit(1);
 	}
-	if (phone_book_index_ == 0)
+	if (count_ == 0)
 		std::cout << "... back to main ..." << std::endl;
 	else
 	{
 		while (true) {
-			std::cin.clear();
-			std::clearerr(stdin);
-			std::cin >> index;
-			std::cin.ignore();
-			if (std::cin.eof() || (index < 0 || index >= phone_book_index_))
-				error("Invalid index; index should in range 0 ~ " + std::to_string(phone_book_index_ - 1));
+			std::cout << "index: ";
+			get_input(input);
+
+	    std::stringstream ss(input);
+  	  if (!(ss >> index) || ss >> index || std::cin.eof() || (index < 0 || index >= count_)) {
+				error("Invalid index; index should be number and in range 0 ~ " + std::to_string(count_ - 1));
+				continue ;
+    	}
 			else
 				break ;
 		}
