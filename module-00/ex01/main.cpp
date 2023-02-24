@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:44:22 by hkong             #+#    #+#             */
-/*   Updated: 2023/02/24 17:03:20 by hkong            ###   ########.fr       */
+/*   Updated: 2023/02/24 18:45:06 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int main(void)
 
 	std::string	input;
 
+	std::cout << "~~~~~~~~~~~~~~~~~ WELCOME ~~~~~~~~~~~~~~~~~" << std::endl;
 	while (true) {
+		std::cout << "INSERT COMMAND(ADD/SEARCH/EXIT): ";
 		phone_book.get_input(input);
 		if (input.empty() || std::cin.eof())
 		{

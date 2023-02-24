@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 21:48:02 by hkong             #+#    #+#             */
-/*   Updated: 2023/02/24 18:39:58 by hkong            ###   ########.fr       */
+/*   Updated: 2023/02/24 20:58:31 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 # include <iomanip>
 # include <sstream>
 
-class PhoneBook
-{
+class PhoneBook {
 	private:
 		Contact	phone_book_[8];
 		int			count_;
