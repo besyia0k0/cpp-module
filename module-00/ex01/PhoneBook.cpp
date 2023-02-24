@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 22:59:14 by hkong             #+#    #+#             */
-/*   Updated: 2023/02/23 18:31:00 by hkong            ###   ########.fr       */
+/*   Updated: 2023/02/24 17:13:30 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,17 @@ int	PhoneBook::phone_book_index_ = 0;
 
 int	PhoneBook::error(std::string error_msg)
 {
-	std::cout << std::endl << "-----------------Error-----------------" << std::endl;
+	std::cout << std::endl << "------------------ Error ------------------" << std::endl;
 	std::cout << error_msg << std::endl;
-	std::cout << "---------------------------------------" << std::endl;
+	std::cout << "-------------------------------------------" << std::endl;
 	return (1);
 }
 
-int	PhoneBook::get_input(std::string &string)
+void	PhoneBook::get_input(std::string &string)
 {
+	std::cin.clear();
+	std::clearerr(stdin);
 	std::getline(std::cin, string);
-	if (string.empty() || std::cin.eof()) {
-		error("Contact can not have empty fields.");
-		return (1);
-	}
-	return (0);
 }
 
 int	PhoneBook::get_contact(Contact &contact)
@@ -37,28 +34,33 @@ int	PhoneBook::get_contact(Contact &contact)
 	std::string	str;
 	
 	std::cout << "First name: ";
-	if (get_input(str))
-		return (1);
+	get_input(str);
+	if (str.empty() || std::cin.eof())
+		return (error("Contact can not have empty fields."));
 	contact.set_first_name(str);
 	
 	std::cout << "Last name: ";
-	if (get_input(str))
-		return (1);
+	get_input(str);
+	if (str.empty() || std::cin.eof())
+		return (error("Contact can not have empty fields."));
 	contact.set_last_name(str);
 
 	std::cout << "Nickname: ";
-	if (get_input(str))
-		return (1);
+	get_input(str);
+	if (str.empty() || std::cin.eof())
+		return (error("Contact can not have empty fields."));
 	contact.set_nickname(str);
 
 	std::cout << "Phone number: ";
-	if (get_input(str))
-		return (1);
+	get_input(str);
+	if (str.empty() || std::cin.eof())
+		return (error("Contact can not have empty fields."));
 	contact.set_phone_number(str);
 
 	std::cout << "Darkest secret: ";
-	if (get_input(str))
-		return (1);
+	get_input(str);
+	if (str.empty() || std::cin.eof())
+		return (error("Contact can not have empty fields."));
 	contact.set_darkest_secret(str);
 	return (0);
 }
@@ -80,11 +82,10 @@ int	PhoneBook::add(void)
 
 	std::cout << "Enter the information of new contact" << std::endl;
 	std::cout << "It's index will be " << phone_book_index_ << std::endl;
-	if (PhoneBook::get_contact(contact)) {
+	while (PhoneBook::get_contact(contact))
 		std::cout << "Error occured during get_contact; Try Again" << std::endl;
-		return (1);
-	}
 	PhoneBook::save(contact);
+	std::cout << "----------------- Add fin -----------------" << std::endl;
 	return (0);
 }
 
@@ -98,7 +99,7 @@ int	PhoneBook::print_row(int index)
 	}
 	/* index */
 	std::cout << std::right;
-	std::cout << std::setw(10) << index + 1 << "|";
+	std::cout << std::setw(10) << index << "|";
 
 	/* first name */
 	str = phone_book_[index].get_first_name();
@@ -127,11 +128,18 @@ int	PhoneBook::print_row(int index)
 
 int	PhoneBook::print_list(void)
 {
-	std::cout << "   index  | firstName| lastName | nickname " << std::endl;
-	std::cout << "---------- ---------- ---------- ----------" << std::endl;
-	for (int i = 0; i < phone_book_index_; i++)
-		if (print_row(i));
-			return (1);
+	std::cout << "******************* list *******************" << std::endl;
+	if (phone_book_index_ == 0)
+		std::cout << "            Phone book is empty.            " << std::endl;
+	else
+	{
+		std::cout << "   index  | firstName| lastName | nickname " << std::endl;
+		std::cout << "---------- ---------- ---------- ----------" << std::endl;
+		for (int i = 0; i < phone_book_index_; i++)
+			if (print_row(i))
+				return (1);
+	}
+	std::cout << "*******************************************" << std::endl;
 	return (0);
 }
 
@@ -143,21 +151,25 @@ int	PhoneBook::search(void)
 		std::cout << "UNEXPECTED FATAL ERROR occured during print_list" << std::endl;
 		exit(1);
 	}
-	while (true) {
-		std::cin >> index;
-		if (std::cin.eof() || (index <= 0 || index > phone_book_index_))
-			error("Invalid index; index should in range 1 ~ " + phone_book_index_);
-		else
-			break ;
+	if (phone_book_index_ == 0)
+		std::cout << "... back to main ..." << std::endl;
+	else
+	{
+		while (true) {
+			std::cin.clear();
+			std::clearerr(stdin);
+			std::cin >> index;
+			std::cin.ignore();
+			if (std::cin.eof() || (index < 0 || index >= phone_book_index_))
+				error("Invalid index; index should in range 0 ~ " + std::to_string(phone_book_index_ - 1));
+			else
+				break ;
+		}
+		std::cout << "You choose index " + std::to_string(index) << std::endl;
+		std::cout << "*************** information ***************" << std::endl;
+		phone_book_[index].print_information();
+		std::cout << "*******************************************" << std::endl;
 	}
-	std::cout << "You choose index " + index << std::endl;
-	std::cout << "------------------------------------------------------" << std::endl;
-	phone_book_[index].print_information();
-	std::cout << "------------------------------------------------------" << std::endl;
+	std::cout << "---------------Search fin---------------" << std::endl;
 	return (0);
-}
-
-int PhoneBook::execute(void)
-{
-	
 }
