@@ -6,18 +6,18 @@
 #    By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 11:33:05 by hkong             #+#    #+#              #
-#    Updated: 2023/02/25 17:46:13 by hkong            ###   ########.fr        #
+#    Updated: 2023/02/26 15:58:31 by hkong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = strings
+NAME = violence
 
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp
+SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 all : $(NAME)
