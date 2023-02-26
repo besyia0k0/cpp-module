@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 20:30:37 by hkong             #+#    #+#             */
-/*   Updated: 2023/02/26 22:11:39 by hkong            ###   ########.fr       */
+/*   Created: 2023/02/26 20:30:33 by hkong             #+#    #+#             */
+/*   Updated: 2023/02/26 22:02:25 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int main(void) {
-	Harl	harl;
+# include <iostream>
+# include <string>
 
-	harl.complain("DEBUG");
-	harl.complain("INFO");
-	harl.complain("WARNING");
-	harl.complain("ERROR");
+class Harl {
+	private:
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
+		void	levelSwitch(int num);
 	
-	return (0);
-}
+	public:
+		void	complain(std::string level);
+};
+
+#endif

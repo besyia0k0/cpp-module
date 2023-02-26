@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 20:30:34 by hkong             #+#    #+#             */
-/*   Updated: 2023/02/26 22:11:15 by hkong            ###   ########.fr       */
+/*   Updated: 2023/02/26 22:11:04 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,37 @@ void	Harl::error(void) {
 	std::cout << std::endl;
 }
 
+void	Harl::levelSwitch(int num) {
+	enum				Levels { DEBUG = 0, INFO, WARNING, ERROR	};
+
+	switch (num) {
+		case DEBUG:
+			Harl::debug();
+
+		case INFO:
+			Harl::info();
+
+		case WARNING:
+			Harl::warning();
+
+		case ERROR:
+			Harl::error();
+			break;
+
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	}
+}
+
 void	Harl::complain(std::string level) {
-	std::string	levels[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
-	void				(Harl::*const funcs[4])(void) = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
+	std::string	levels[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };		
+	int					num = -1;
 
 	for (int i = 0; i < 4; i++) {
-		if (levels[i].compare(level) == 0)
-			(this->*funcs[i])();
+		if (levels[i].compare(level) == 0) {
+			num = i;
+			break;
+		}
 	}
+	Harl::levelSwitch(num);
 }
