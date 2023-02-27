@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 18:01:04 by hkong             #+#    #+#             */
-/*   Updated: 2023/02/26 15:53:26 by hkong            ###   ########.fr       */
+/*   Updated: 2023/02/27 15:47:06 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 
 class Weapon {
 	private:
-		std::string				type_;
+		std::string	type;
 	
 	public:
-		Weapon(std::string type);
+		Weapon(std::string type_);
+		~Weapon();
 		const std::string &getType(void) const;
-		void							setType(std::string new_type);
+		void	setType(std::string new_type);
 };
 
 #endif

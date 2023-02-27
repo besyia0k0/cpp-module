@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 16:04:54 by hkong             #+#    #+#             */
-/*   Updated: 2023/02/26 20:26:00 by hkong            ###   ########.fr       */
+/*   Updated: 2023/02/27 15:55:58 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int main(int argc, char *argv[]) {
 	/* 파일 열기/예외처리 */
 	input.open(argv[1]);
 	if (input.fail()) {
-		std::cout << "Error: invalid file" << std::endl;
+		std::cout << "Error: input file open failed; invalid file" << std::endl;
 		return 1;
 	}
 	output.open(std::string(argv[1]) + ".replace");
 	if (output.fail()) {
-		std::cout << "Error: cannot create file" << std::endl;
+		std::cout << "Error: cannot create/open output file" << std::endl;
 		input.close();
 		return 1;
 	}

@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 21:12:08 by hkong             #+#    #+#             */
-/*   Updated: 2023/02/24 22:06:50 by hkong            ###   ########.fr       */
+/*   Updated: 2023/02/27 15:35:12 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 
 class Zombie {
 	private:
-		std::string	name_;
+		std::string	name;
 
 	public:
 		Zombie();
-		Zombie(std::string name);
+		Zombie(std::string name_);
 		~Zombie();
 		void	announce(void);
+		void	setName(std::string name_);
 };
 
 Zombie*	newZombie(std::string name);
