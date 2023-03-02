@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:30:52 by hkong             #+#    #+#             */
-/*   Updated: 2023/02/27 16:36:06 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/02 21:12:53 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Fixed {
 		Fixed();
 		Fixed(const Fixed &fixed);
 		~Fixed();
-		Fixed &operator= (const Fixed &fixed);
+		Fixed& operator=(const Fixed &fixed);
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
