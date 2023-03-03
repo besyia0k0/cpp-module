@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:30:54 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/03 19:58:16 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/03 20:10:27 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,25 +132,25 @@ int	Fixed::toInt(void) const {
 }
 
 /* min/max function overloading */
-Fixed Fixed::min(Fixed& num1, Fixed& num2) {
+Fixed& Fixed::min(Fixed& num1, Fixed& num2) {
 	if (num1 < num2)
 		return num1;
 	return num2;
 }
 
-Fixed Fixed::min(const Fixed& num1, const Fixed& num2) {
+const Fixed& Fixed::min(const Fixed& num1, const Fixed& num2) {
 	if (num1 < num2)
 		return num1;
 	return num2;
 }
 
-Fixed Fixed::max(Fixed& num1, Fixed& num2) {
-if (num1 > num2)
+Fixed& Fixed::max(Fixed& num1, Fixed& num2) {
+	if (num1 > num2)
 		return num1;
 	return num2;
 }
 
-Fixed Fixed::max(const Fixed& num1, const Fixed& num2) {
+const Fixed& Fixed::max(const Fixed& num1, const Fixed& num2) {
 	if (num1 > num2)
 		return num1;
 	return num2;
