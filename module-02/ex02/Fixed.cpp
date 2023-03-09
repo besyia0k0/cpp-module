@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:30:54 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/03 20:10:27 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/09 18:58:40 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ bool Fixed::operator<=(const Fixed &fixed) const {
 
 bool Fixed::operator==(const Fixed &fixed) const {
 	return this->toFloat() == fixed.toFloat();
-
 }
 
 bool Fixed::operator!=(const Fixed &fixed) const {

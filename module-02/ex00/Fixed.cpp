@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:30:54 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/02 21:24:56 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/09 17:00:04 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int	Fixed::getRawBits(void) const {
 }
 
 void	Fixed::setRawBits(int const raw) {
+	std::cout << "setRawBits member function called" << std::endl;
 	value = raw;
 }
