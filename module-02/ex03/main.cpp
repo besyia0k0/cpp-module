@@ -6,22 +6,22 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:30:50 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/03 20:09:56 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/09 16:14:54 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
 int main(void) {
-	Fixed a;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
+	Point a(0.0f, 0.0f);
+	Point b(0.0f, 4.0f);
+	Point c(4.0f, 0.0f);
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max(a, b) << std::endl;
+	Point	point(1.0f, 2.0f);
+
+	if (bsp(a, b, c, point))
+		std::cout << "True" << std::endl;
+	else
+		std::cout << "False" << std::endl;
 	return 0;
 }
