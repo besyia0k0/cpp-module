@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 22:05:53 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/11 21:11:50 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/11 21:56:43 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void) {
 		robot_b.takeDamage(20);
 		robot_b.beRepaired(10);
 		robot_a.guardGate();
-		robot_a.guardGate();
+		robot_b.guardGate();
 	}
 	std::cout << YELLOW << "---------- Test Finish ----------" << CLOSE << std::endl;
 	std::cout << YELLOW << "----- Function Exception Test -----" << CLOSE << std::endl;
