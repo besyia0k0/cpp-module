@@ -6,18 +6,18 @@
 #    By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 11:33:05 by hkong             #+#    #+#              #
-#    Updated: 2023/03/09 15:57:36 by hkong            ###   ########.fr        #
+#    Updated: 2023/03/11 14:43:45 by hkong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = bsp
+NAME = claptrap
 
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp Fixed.cpp Point.cpp bsp.cpp
+SRCS = main.cpp ClapTrap.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 all : $(NAME)
