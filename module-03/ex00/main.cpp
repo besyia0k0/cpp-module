@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 22:05:53 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/11 18:04:05 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/11 18:13:25 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(void) {
 
 		for (int i = 0; i < 15; i++)
 			robot_a.attack("RobotB");
+		robot_a.beRepaired(2);
 	}
 	std::cout << YELLOW << "----- takeDamage & hit_points -----" << CLOSE << std::endl;
 	{
