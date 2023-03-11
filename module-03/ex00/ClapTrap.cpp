@@ -6,27 +6,27 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 22:05:55 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/11 18:04:19 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/11 20:28:37 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ClapTrap.hpp>
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(): name("default"), hit_points(10), energy_points(10), attack_damage(0) {
-	std::cout << GREEN << "+ Default constructor called +" << CLOSE << std::endl;
+	std::cout << GREEN << "+ ClapTrap Default constructor called +" << CLOSE << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name_): name(name_), hit_points(10), energy_points(10), attack_damage(0) {
-	std::cout << GREEN <<  "+ " << name << " constructor called +" << CLOSE << std::endl;
+	std::cout << GREEN <<  "+ ClapTrap " << name << " constructor called +" << CLOSE << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& clapTrap) {
-	std::cout << GREEN << "+ Copy constructor called +" << CLOSE << std::endl;
+	std::cout << GREEN << "+ ClapTrap Copy constructor called +" << CLOSE << std::endl;
 	*this = clapTrap;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap &clapTrap) {
-	std::cout << YELLOW << "= Copy assignment operator called =" << CLOSE << std::endl;
+ClapTrap& ClapTrap::operator=(const ClapTrap& clapTrap) {
+	std::cout << YELLOW << "= ClapTrap Copy assignment operator called =" << CLOSE << std::endl;
 	name = clapTrap.name;
 	hit_points = clapTrap.hit_points;
 	energy_points = clapTrap.energy_points;
@@ -35,12 +35,12 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &clapTrap) {
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << GREEN << "- " << name << " destructor called -" << CLOSE << std::endl;
+	std::cout << GREEN << "- ClapTrap " << name << " destructor called -" << CLOSE << std::endl;
 }
 
 void	ClapTrap::attack(const std::string& target) {
 	if (!hit_points || !energy_points) {
-		std::cout << RED << "[ERROR] ClapTrap " << name << " trying to attack, but " << CLOSE;
+		std::cout << RED << "[ERROR] ClapTrap " << name << " tried to attack, but " << CLOSE;
 		if (!hit_points)
 			std::cout << RED << "ClapTrap " << name << " is already died. 😕" << CLOSE << std::endl; 
 		else if (!energy_points)

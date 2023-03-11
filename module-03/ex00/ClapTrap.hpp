@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 22:05:51 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/11 18:00:09 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/11 19:43:03 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class ClapTrap {
 		ClapTrap();
 		ClapTrap(std::string name_);
 		ClapTrap(const ClapTrap& clapTrap);
-		ClapTrap& operator=(const ClapTrap &clapTrap);
+		ClapTrap& operator=(const ClapTrap& clapTrap);
 		~ClapTrap();
 
 		void	attack(const std::string& target);
