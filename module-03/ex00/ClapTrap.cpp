@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 22:05:55 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/11 20:28:37 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/11 21:55:02 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,11 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 	hit_points -= real_amount;
 	if (hit_points == 0)
 		std::cout << "💀 ClapTrap " << name << " dead. 💀" << std::endl;
-
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
 	if (!hit_points || !energy_points) {
-		std::cout << RED << "[ERROR] ClapTrap " << name << " trying to repair, but " << CLOSE;
+		std::cout << RED << "[ERROR] ClapTrap " << name << " tried to repair, but " << CLOSE;
 		if (!hit_points)
 			std::cout << RED << "ClapTrap " << name << " is already died. 😕" << CLOSE << std::endl; 
 		else if (!energy_points)

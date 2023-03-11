@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 18:19:44 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/11 21:17:23 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/11 21:15:31 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # define BLUE "\x1B[34m"
 
 class ScavTrap: public ClapTrap {
+	private:
+
 	public:
 		ScavTrap();
 		ScavTrap(std::string name_);
