@@ -6,12 +6,12 @@
 #    By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 11:33:05 by hkong             #+#    #+#              #
-#    Updated: 2023/03/11 21:14:34 by hkong            ###   ########.fr        #
+#    Updated: 2023/03/11 21:58:36 by hkong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = claptrap
+NAME = FragTrap
 
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
