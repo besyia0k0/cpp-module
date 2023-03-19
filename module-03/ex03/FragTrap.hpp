@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 21:14:09 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/11 21:49:47 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/19 16:58:32 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include "ClapTrap.hpp"
 
-# define CYAN "\x1B[36m"
+# define MAGENTA "\x1B[35m"
 
-class FragTrap: public ClapTrap {
+class FragTrap: public virtual ClapTrap {
 	public:
 		FragTrap();
 		FragTrap(std::string name_);
@@ -25,6 +25,7 @@ class FragTrap: public ClapTrap {
 		FragTrap& operator=(const FragTrap& fragTrap);
 		~FragTrap();
 
+		void	attack(const std::string& target);
 		void	highFivesGuys(void);
 };
 

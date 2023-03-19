@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 21:59:27 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/11 22:19:08 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/19 16:58:52 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
+
+# define CYAN "\x1B[36m"
 
 class DiamondTrap: public FragTrap, public ScavTrap {
 	private:
@@ -27,7 +29,8 @@ class DiamondTrap: public FragTrap, public ScavTrap {
 		DiamondTrap& operator=(const DiamondTrap& diamondTrap);
 		~DiamondTrap();
 
-		void	whoAmI();
+		void	attack(const std::string& target);
+		void	whoAmI();	
 };
 
 
