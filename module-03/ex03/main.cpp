@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 22:05:53 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/19 16:41:44 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/19 21:24:54 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@ int	main(void) {
 	{
 		DiamondTrap	robot_a("RobotA");
 		DiamondTrap	robot_b("RobotB");
+		DiamondTrap robot_c;
+
+		robot_c = robot_b;
 
 		robot_a.attack("RobotB");
-		robot_b.takeDamage(20);
-		robot_b.beRepaired(10);
+		robot_c.takeDamage(20);
+		robot_c.beRepaired(10);
 		robot_a.whoAmI();
-		robot_b.whoAmI();
+		robot_c.whoAmI();
 	}
 	std::cout << YELLOW << "---------- Test Finish ----------" << CLOSE << std::endl;
 	std::cout << YELLOW << "----- Function Exception Test -----" << CLOSE << std::endl;
