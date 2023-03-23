@@ -6,18 +6,19 @@
 #    By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 11:33:05 by hkong             #+#    #+#              #
-#    Updated: 2023/03/19 22:10:28 by hkong            ###   ########.fr        #
+#    Updated: 2023/03/23 15:27:41 by hkong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = DiamondTrap
+NAME = Animal
 
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp Animal.cpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp \
+				WrongAnimal.cpp WrongCat.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 all : $(NAME)
