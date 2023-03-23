@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 21:58:08 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/23 15:17:04 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/23 16:24:58 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include <string>
+
+# define YELLOW "\x1B[33m"
+# define GREEN "\x1B[32m"
+# define CLOSE "\x1B[0m"
 
 class Animal {
 	protected:
@@ -25,7 +29,7 @@ class Animal {
 		Animal(std::string type_);
 		Animal(const Animal& animal);
 		Animal& operator=(const Animal& animal);
-		~Animal();
+		virtual ~Animal();
 
 		std::string		getType(void)	const;
 		virtual void	makeSound(void) const;

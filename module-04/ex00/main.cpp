@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 21:58:14 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/23 15:32:42 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/23 16:53:22 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,50 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 
+void test() {
+		const WrongAnimal* wrongMeta = new WrongAnimal();
+		const WrongAnimal* wrongCat = new WrongCat();
+
+		std::cout << wrongMeta->getType() << std::endl;
+		std::cout << wrongCat->getType() << std::endl;
+		wrongMeta->makeSound();
+		wrongCat->makeSound();
+
+		delete wrongMeta;
+		delete wrongCat;
+}
+
 int main() {
-	std::cout << "-------- Correct Implementation Test --------" << std::endl;
+	std::cout << YELLOW << "-------- Basic Function Test --------" << CLOSE << std::endl;
+	{
+		const Animal* meta = new Animal();
+		const Cat* cat = new Cat();
+		const Dog* dog = new Dog();
+
+		std::cout << meta->getType() << std::endl;
+		std::cout << cat->getType() << std::endl;
+		std::cout << dog->getType() << std::endl;
+		meta->makeSound();
+		cat->makeSound();
+		dog->makeSound();
+
+		delete meta;
+		delete cat;
+		delete dog;
+	}
+	{
+		const	WrongAnimal* wrongMeta = new WrongAnimal();
+		const	WrongCat*	wrongCat = new WrongCat();
+		std::cout << wrongMeta->getType() << std::endl;
+		std::cout << wrongCat->getType() << std::endl;
+		wrongMeta->makeSound();
+		wrongCat->makeSound();
+		
+		delete wrongMeta;
+		delete wrongCat;
+	}
+	std::cout << YELLOW << "---------------- Test Fin ----------------" << CLOSE << std::endl;
+	std::cout << YELLOW << "-------- Correct Implementation Test --------" << CLOSE << std::endl;
 	{
 		const Animal* meta = new Animal();
 		const Animal* cat = new Cat();
@@ -25,20 +67,29 @@ int main() {
 		std::cout << cat->getType() << std::endl;
 		std::cout << dog->getType() << std::endl;
 		meta->makeSound();
-		cat->makeSound(); //will output the cat sound!
-		dog->makeSound();
-	}
-	std::cout << "---------------- Test Fin ----------------" << std::endl;
-	std::cout << "-------- Wrong Implementation Test --------" << std::endl;
-	{
-		const WrongAnimal* meta = new WrongAnimal();
-		const WrongAnimal* cat = new WrongCat();
-
-		std::cout << meta->getType() << std::endl;
-		std::cout << cat->getType() << std::endl;
-		meta->makeSound();
 		cat->makeSound();
+		dog->makeSound();
+
+		delete meta;
+		delete cat;
+		delete dog;
 	}
-	std::cout << "---------------- Test Fin ----------------" << std::endl;
+	std::cout << YELLOW << "---------------- Test Fin ----------------" << CLOSE << std::endl;
+	std::cout << YELLOW << "-------- Wrong Implementation Test --------" << CLOSE << std::endl;
+	{
+		const WrongAnimal* wrongMeta = new WrongAnimal();
+		const WrongAnimal* wrongCat = new WrongCat();
+
+		std::cout << wrongMeta->getType() << std::endl;
+		std::cout << wrongCat->getType() << std::endl;
+		wrongMeta->makeSound();
+		wrongCat->makeSound();
+
+		delete wrongMeta;
+		delete wrongCat;
+	}
+	test();
+	std::cout << YELLOW << "---------------- Test Fin ----------------" << CLOSE << std::endl;
 	return 0;
 }
+

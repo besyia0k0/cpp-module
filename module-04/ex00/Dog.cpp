@@ -6,29 +6,29 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 14:35:46 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/23 15:20:01 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/23 15:43:48 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
 Dog::Dog(): Animal("Dog") {
-	std::cout << "+ [ Dog ] Default Constructor called +" << std::endl;
+	std::cout << GREEN << "+ [ Dog ] Default Constructor called +" << CLOSE << std::endl;
 }
 
 Dog::Dog(const Dog& dog) {
-	std::cout << "+ [ Dog ] Copy Constructor called +" << std::endl;
+	std::cout << GREEN << "+ [ Dog ] Copy Constructor called +" << CLOSE << std::endl;
 	*this = dog;
 }
 
 Dog& Dog::operator=(const Dog& dog) {
-	std::cout << "= [ Dog ] Copy Assignment Operator called =" << std::endl;
+	std::cout << GREEN << "= [ Dog ] Copy Assignment Operator called =" << CLOSE << std::endl;
 	type = dog.type;
 	return *this;
 }
 
 Dog::~Dog() {
-	std::cout << "- [ Dog ] Destructor called -" << std::endl;
+	std::cout << GREEN << "- [ Dog ] Destructor called -" << CLOSE << std::endl;
 }
 
 void	Dog::makeSound(void) const {

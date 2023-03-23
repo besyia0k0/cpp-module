@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 15:22:07 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/23 15:25:05 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/23 15:41:44 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include <string>
+
+# define YELLOW "\x1B[33m"
+# define GREEN "\x1B[32m"
+# define CLOSE "\x1B[0m"
 
 class WrongAnimal {
 	protected:
