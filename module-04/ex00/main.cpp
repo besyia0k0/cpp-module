@@ -6,26 +6,13 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 21:58:14 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/23 16:53:22 by hkong            ###   ########.fr       */
+/*   Updated: 2023/03/23 17:47:06 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongCat.hpp"
-
-void test() {
-		const WrongAnimal* wrongMeta = new WrongAnimal();
-		const WrongAnimal* wrongCat = new WrongCat();
-
-		std::cout << wrongMeta->getType() << std::endl;
-		std::cout << wrongCat->getType() << std::endl;
-		wrongMeta->makeSound();
-		wrongCat->makeSound();
-
-		delete wrongMeta;
-		delete wrongCat;
-}
 
 int main() {
 	std::cout << YELLOW << "-------- Basic Function Test --------" << CLOSE << std::endl;
@@ -88,7 +75,6 @@ int main() {
 		delete wrongMeta;
 		delete wrongCat;
 	}
-	test();
 	std::cout << YELLOW << "---------------- Test Fin ----------------" << CLOSE << std::endl;
 	return 0;
 }
