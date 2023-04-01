@@ -6,13 +6,13 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 14:35:44 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/23 19:12:30 by hkong            ###   ########.fr       */
+/*   Updated: 2023/04/01 16:28:37 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(): Animal("Cat") {
+Cat::Cat(): AAnimal("Cat") {
 	std::cout << GREEN << "+ [ Cat ] Default Constructor called +" << CLOSE << std::endl;
 	brain = new Brain();
 }

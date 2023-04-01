@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 # include <iostream>
 # include <string>
@@ -20,16 +20,16 @@
 # define GREEN "\x1B[32m"
 # define CLOSE "\x1B[0m"
 
-class Animal {
+class AAnimal {
 	protected:
 		std::string	type;
 
 	public:
-		Animal();
-		Animal(std::string type_);
-		Animal(const Animal& animal);
-		Animal& operator=(const Animal& animal);
-		virtual ~Animal();
+		AAnimal();
+		AAnimal(std::string type_);
+		AAnimal(const AAnimal& animal);
+		AAnimal& operator=(const AAnimal& animal);
+		virtual ~AAnimal();
 
 		std::string		getType(void)	const;
 		virtual void	makeSound(void) const = 0;

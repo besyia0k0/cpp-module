@@ -6,27 +6,27 @@
 #    By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 11:33:05 by hkong             #+#    #+#              #
-#    Updated: 2023/04/01 16:21:08 by hkong            ###   ########.fr        #
+#    Updated: 2023/04/01 16:31:09 by hkong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = PureVirtual
 
-CPP = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRCS = main.cpp AAnimal.cpp Cat.cpp Dog.cpp Brain.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CPP) $(CFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 %.o: %.cpp
-	$(CPP) $(CFLAGS) -I./ $(HEADERS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -I./ $(HEADERS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJS)

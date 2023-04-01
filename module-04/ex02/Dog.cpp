@@ -6,13 +6,13 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 14:35:46 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/23 19:31:43 by hkong            ###   ########.fr       */
+/*   Updated: 2023/04/01 16:28:34 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(): Animal("Dog") {
+Dog::Dog(): AAnimal("Dog") {
 	std::cout << GREEN << "+ [ Dog ] Default Constructor called +" << CLOSE << std::endl;
 	brain = new Brain();
 }
