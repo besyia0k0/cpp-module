@@ -6,12 +6,13 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 21:58:14 by hkong             #+#    #+#             */
-/*   Updated: 2023/04/16 13:03:42 by hkong            ###   ########.fr       */
+/*   Updated: 2023/04/16 13:20:00 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongCat.hpp"
 
 int main() {
 	std::cout << YELLOW << "-------- Basic Function Test --------" << CLOSE << std::endl;
@@ -48,6 +49,36 @@ int main() {
 		cat2.showIdeas();
 	}
 	std::cout << YELLOW << "---------------- Test Fin ----------------" << CLOSE << std::endl;
+	// std::cout << YELLOW << "-------- Wrong Cat Test --------" << CLOSE << std::endl;
+	// {
+	// 	WrongCat cat1;
+	// 	WrongCat cat2;
+
+	// 	std::cout << "Cat 1: ";
+	// 	std::cout << cat1.getType() << std::endl;
+	// 	std::cout << "Cat 2: ";
+	// 	std::cout << cat2.getType() << std::endl;
+	// 	cat1.insertIdea(4, "hi");
+	// 	std::cout << "Cat 1: ";
+	// 	cat1.showIdeas();
+	// 	std::cout << "Cat 2: ";
+	// 	cat2.showIdeas();
+
+	// 	// copy assignment function test
+	// 	cat2 = cat1;
+	// 	std::cout << "Cat 1: ";
+	// 	cat1.showIdeas();
+	// 	std::cout << "Cat 2: ";
+	// 	cat2.showIdeas();
+		
+	// 	// deep copy test
+	// 	cat2.insertIdea(2, "meow!");
+	// 	std::cout << "Cat 1: ";
+	// 	cat1.showIdeas();
+	// 	std::cout << "Cat 2: ";
+	// 	cat2.showIdeas();
+	// }
+	// std::cout << YELLOW << "---------------- Test Fin ----------------" << CLOSE << std::endl;
 	std::cout << YELLOW << "-------- Assign and Free Test --------" << CLOSE << std::endl;
 	{
 		const Animal* array[4];
