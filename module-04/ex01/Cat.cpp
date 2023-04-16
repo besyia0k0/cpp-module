@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 14:35:44 by hkong             #+#    #+#             */
-/*   Updated: 2023/03/23 19:12:30 by hkong            ###   ########.fr       */
+/*   Updated: 2023/04/16 12:54:24 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,20 @@ Cat::Cat(): Animal("Cat") {
 	brain = new Brain();
 }
 
-Cat::Cat(const Cat& cat) {
+Cat::Cat(const Cat& cat): Animal("Cat") {
 	std::cout << GREEN << "+ [ Cat ] Copy Constructor called +" << CLOSE << std::endl;
+	brain = new Brain();
 	*this = cat;
 }
 
 Cat& Cat::operator=(const Cat& cat) {
 	std::cout << GREEN << "= [ Cat ] Copy Assignment Operator called =" << CLOSE << std::endl;
-	type = cat.type;
-	
-	delete brain;
-	brain = new Brain(*(cat.brain));
+	if (this != &cat) {
+		type = cat.type;
+
+		delete brain;
+		brain = new Brain(*(cat.brain));
+	}
 	return *this;
 }
 
