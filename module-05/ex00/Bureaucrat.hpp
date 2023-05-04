@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:34 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/04 21:48:35 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/05 00:37:54 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,16 @@
 # include <string>
 # include <exception>
 
+# define YELLOW "\x1B[33m"
+# define GREEN "\x1B[32m"
+# define RED "\x1B[31m"
+# define CLOSE "\x1B[0m"
+
 class Bureaucrat {
 	private:
 		const std::string name;
 		int	grade;
-		void	verifyGrade() const;
+		void	checkGrade(int grade_) const;
 
 	public:
 		Bureaucrat();
