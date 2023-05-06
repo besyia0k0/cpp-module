@@ -6,11 +6,12 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:31 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 09:09:05 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/06 09:07:29 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(): name("default"), grade(150) {
 	std::cout << GREEN << "+ [ Bureaucrat ] default constructor called +" << CLOSE << std::endl;
@@ -59,6 +60,15 @@ void Bureaucrat::incrementGrade() {
 void Bureaucrat::decrementGrade() {
 	grade = checkGrade(grade + 1);
 	std::cout << "(" << name << "): decrement grade." << std::endl;
+}
+
+void Bureaucrat::signForm(Form &form) {
+	try {
+		form.beSigned(*this);
+		std::cout << name << " signed " << form.getName() << std::endl;
+	} catch (std::exception& e) {
+		std::cerr << name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {

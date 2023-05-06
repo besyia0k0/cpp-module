@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:34 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 09:08:45 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/06 09:05:48 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define GREEN "\x1B[32m"
 # define RED "\x1B[31m"
 # define CLOSE "\x1B[0m"
+
+class Form;
 
 class Bureaucrat {
 	private:
@@ -46,7 +48,8 @@ class Bureaucrat {
 		std::string getName() const;
 		int		getGrade() const;
 		void	incrementGrade();
-		void	decrementGrade();		
+		void	decrementGrade();
+		void	signForm(Form &form);	
 };
 
 std::ostream& operator<<(std::ostream& output, const Bureaucrat& bureaucrat);
