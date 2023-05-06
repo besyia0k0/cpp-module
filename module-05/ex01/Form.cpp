@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:45:11 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 08:54:42 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/06 12:04:50 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ Form::Form(const Form& form): name(form.getName()), sign(false), signGrade(check
 }
 
 Form& Form::operator=(const Form& form) {
-	std::cout << GREEN << "= [ Form ] " << name << " copy assignment operator called =" << CLOSE << std::endl;
+	std::cout << GREEN << "= [ Form ] " << name << " copy assignment operator called (*do nothing*) =" << CLOSE << std::endl;
 	// name, signGrade, executeGrade is constant variable, so it cannot changed.
-	sign = form.getSigned();
+	// also sign is done by special case, so it makes no sense.
 	return *this;
 }
 
@@ -52,11 +52,11 @@ int Form::getExecuteGrade() const {
 	return executeGrade;
 }
 
-void	Form::beSigned(Bureaucrat& bureaucrat) {
+void	Form::beSigned(Bureaucrat const& bureaucrat) {
 	if (bureaucrat.getGrade() <= signGrade)
 		sign = true;
 	else
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 }
 
 int Form::checkGrade(int grade) const {

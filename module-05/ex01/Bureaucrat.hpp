@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:34 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 09:05:48 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/06 12:05:21 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class Bureaucrat {
 		int		getGrade() const;
 		void	incrementGrade();
 		void	decrementGrade();
-		void	signForm(Form &form);	
+		void	signForm(Form &form) const;
 };
 
 std::ostream& operator<<(std::ostream& output, const Bureaucrat& bureaucrat);

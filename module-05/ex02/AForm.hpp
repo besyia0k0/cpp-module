@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:45:18 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 12:04:54 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/06 12:04:14 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 	private:
 		const std::string name;
 		bool	sign;
@@ -34,23 +34,29 @@ class Form {
 			public:
 				virtual const char* what() const throw();
 		};
+		class ExecuteNotSignedException : public std::exception {
+			public:
+				virtual const char* what() const throw();
+		};
 
 	public:
-		Form();
-		Form(const std::string name_, const int signGrade_, const int executeGrade_);
-		Form(const Form& form);
-		Form& operator=(const Form& form);
-		~Form();
+		AForm();
+		AForm(const std::string name_, const int signGrade_, const int executeGrade_);
+		AForm(const AForm& aForm);
+		AForm& operator=(const AForm& aForm);
+		virtual ~AForm();
 
 		std::string	getName() const;
 		bool	getSigned() const;
 		int		getSignGrade() const;
 		int		getExecuteGrade() const;
-		
+
+		void	canExecute(Bureaucrat const& bureaucrat) const;
 		void	beSigned(Bureaucrat const& bureaucrat);
+		virtual void execute(Bureaucrat const& executor) const = 0;
 };
 
-std::ostream& operator<<(std::ostream& output, const Form& form);
+std::ostream& operator<<(std::ostream& output, const AForm& aForm);
 
 
 #endif
