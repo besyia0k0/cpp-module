@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 09:40:55 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 12:07:06 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/06 16:52:37 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm
 	std::cout << GREEN << "= [ PresidentialPardonForm ] " << getName() << " copy assignment operator called (*do nothing*) =" << CLOSE << std::endl;
 	// name, signGrade, executeGrade is constant variable, so it cannot changed.
 	// also sign is done by special case, so it makes no sense.
+	presidentialPardonForm.getName();
 	return *this;
 }
 

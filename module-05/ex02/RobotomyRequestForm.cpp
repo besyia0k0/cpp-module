@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 09:40:50 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 12:14:11 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/06 17:59:11 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm& robotom
 	std::cout << GREEN << "= [ RobotomyRequestForm ] " << getName() << " copy assignment operator called (*do nothing*) =" << CLOSE << std::endl;
 	// name, signGrade, executeGrade is constant variable, so it cannot changed.
 	// also sign is done by special case, so it makes no sense.
+	robotomyRequestForm.getName();
 	return *this;
 }
 
@@ -39,7 +40,7 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 void	RobotomyRequestForm::execute(Bureaucrat const& executor) const {
 	canExecute(executor);
 	std::cout << "Zzzzz... ** some drilling noises **" << std::endl;
-	std::srand(std::time(nullptr)); // use current time as seed for random generator
+	std::srand((unsigned int)std::time(NULL)); // use current time as seed for random generator
   if (std::rand() % 2 == 0)
 		std::cout << executor.getName() << " has been robotomized!!" << std::endl;
 	else

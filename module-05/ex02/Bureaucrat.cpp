@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:31 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 16:36:18 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/06 17:52:03 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void Bureaucrat::decrementGrade() {
 
 void Bureaucrat::signForm(AForm &aForm) const {
 	try {
+		std::cout << "[ " << name << " try to sign " << aForm.getName() << " ... ]" << std::endl;
 		aForm.beSigned(*this);
 		std::cout << name << " signed " << aForm.getName() << std::endl;
 	} catch (std::exception& e) {
@@ -71,12 +72,22 @@ void Bureaucrat::signForm(AForm &aForm) const {
 	}
 }
 
+void	Bureaucrat::executeForm(AForm const& aForm) {
+	try {
+		std::cout << "[ " << name << " try to execute " << aForm.getName() << " ... ]" << std::endl;
+		aForm.execute(*this);
+		std::cout << name << " excuted " << aForm.getName() << std::endl;
+	} catch (std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}
+}
+
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return "! [ Exception ] Bureaucrat: Grade Too High !";
+	return "*** [ Exception ] Bureaucrat: Grade Too High ***";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return "! [ Exception ] Bureaucrat: Grade Too Low !";
+	return "*** [ Exception ] Bureaucrat: Grade Too Low ***";
 }
 
 std::ostream& operator<<(std::ostream& output, const Bureaucrat& bureaucrat) {

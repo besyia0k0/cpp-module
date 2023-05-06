@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:45:11 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 12:04:50 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/06 17:51:06 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ int Form::checkGrade(int grade) const {
 }
 
 const char* Form::GradeTooHighException::what() const throw() {
-	return "! [ Exception ] Form: Grade Too High !";
+	return "*** [ Exception ] Form: Grade Too High ***";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
-	return "! [ Exception ] Form: Grade Too Low !";
+	return "*** [ Exception ] Form: Grade Too Low ***";
 }
 
 std::ostream& operator<<(std::ostream& output, const Form& form){

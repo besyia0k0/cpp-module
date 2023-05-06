@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:45:11 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 16:39:49 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/06 17:51:37 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ AForm& AForm::operator=(const AForm& aForm) {
 	std::cout << GREEN << "= [ AForm ] " << name << " copy assignment operator called (*do nothing*) =" << CLOSE << std::endl;
 	// name, signGrade, executeGrade is constant variable, so it cannot changed.
 	// also sign is done by special case, so it makes no sense.
+	aForm.getName();
 	return *this;
 }
 
@@ -75,15 +76,15 @@ int AForm::checkGrade(int grade) const {
 }
 
 const char* AForm::GradeTooHighException::what() const throw() {
-	return "! [ Exception ] AForm: Grade Too High !";
+	return "*** [ Exception ] AForm: Grade Too High ***";
 }
 
 const char* AForm::GradeTooLowException::what() const throw() {
-	return "! [ Exception ] AForm: Grade Too Low !";
+	return "*** [ Exception ] AForm: Grade Too Low ***";
 }
 
 const char* AForm::ExecuteNotSignedException::what() const throw() {
-	return "! [ Exception ] AForm: Not signed form cannot execute !";
+	return "*** [ Exception ] AForm: Not signed form cannot execute ***";
 }
 
 std::ostream& operator<<(std::ostream& output, const AForm& aForm){

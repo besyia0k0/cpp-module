@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:31 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 12:05:15 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/06 17:50:48 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ void Bureaucrat::signForm(Form &form) const {
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return "! [ Exception ] Bureaucrat: Grade Too High !";
+	return "*** [ Exception ] Bureaucrat: Grade Too High ***";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return "! [ Exception ] Bureaucrat: Grade Too Low !";
+	return "*** [ Exception ] Bureaucrat: Grade Too Low ***";
 }
 
 std::ostream& operator<<(std::ostream& output, const Bureaucrat& bureaucrat) {

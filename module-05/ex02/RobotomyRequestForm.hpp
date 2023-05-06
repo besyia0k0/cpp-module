@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 09:40:48 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 12:11:13 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/06 17:03:54 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include "AForm.hpp"
 # include <ctime>
 # include <cstdlib>
+
+class Bureaucrat;
 
 class RobotomyRequestForm: public AForm {
 	private:
