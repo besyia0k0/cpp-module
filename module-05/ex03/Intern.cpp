@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:02:04 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/07 16:28:26 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/07 19:10:28 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,35 @@ Intern::~Intern() {
 }
 
 AForm* Intern::makeForm(std::string formName, std::string formTarget) {
+	std::string options[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+	enum	eOptionNum { SHRUBBERY = 0, ROBOTOMY, PRESIDENTIAL};
+	int	option = -1;
 	AForm* form = NULL;
 	
+	for (int i = 0; i < 3; i++) {
+		if (options[i].compare(formName) == 0)
+			option = i;
+	}
+
 	try {
-		if (formName == "ShrubberyCreationForm") {
-			form = new ShrubberyCreationForm(formTarget);
-		} else if (formName == "RobotomyRequestForm") {
-			form = new RobotomyRequestForm(formTarget);
-		} else if (formName == "PresidentialPardonForm") {
-			form = new PresidentialPardonForm(formTarget);
-		} else {
-			throw FormNotExistException();
+		switch (option) {
+			case SHRUBBERY:
+				form = new ShrubberyCreationForm(formTarget);
+				break;
+			case ROBOTOMY:
+				form = new RobotomyRequestForm(formTarget);
+				break;
+			case PRESIDENTIAL:
+				form = new PresidentialPardonForm(formTarget);
+				break;
+			default:
+				throw FormNotExistException();
 		}
 		std::cout << "Intern creates " << *form << std::endl;
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
+	
 	return form;
 }
 

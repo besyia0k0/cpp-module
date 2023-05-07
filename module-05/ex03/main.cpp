@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:36 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/07 16:31:23 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/07 16:50:47 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(void) {
 	{
 		Intern intern;
 		Bureaucrat	person("Person", 20);
-		AForm* shrubberyForm = intern.makeForm("ShrubberyCreationForm", "shrubbery");
+		AForm* shrubberyForm = intern.makeForm("shrubbery creation", "shrubbery");
 
 		if (shrubberyForm) {
 			std::cout << *shrubberyForm << std::endl;
@@ -38,7 +38,7 @@ int main(void) {
 	{
 		Intern intern;
 		Bureaucrat	person("Person", 20);
-		AForm* robotomyForm = intern.makeForm("RobotomyRequestForm", "robotomy");
+		AForm* robotomyForm = intern.makeForm("robotomy request", "robotomy");
 
 		if (robotomyForm) {
 			std::cout << *robotomyForm << std::endl;
@@ -53,7 +53,7 @@ int main(void) {
 	{
 		Intern intern;
 		Bureaucrat	person("Person", 3);
-		AForm* presidentialForm = intern.makeForm("PresidentialPardonForm", "presidential");
+		AForm* presidentialForm = intern.makeForm("presidential pardon", "presidential");
 
 		if (presidentialForm) {
 			std::cout << *presidentialForm << std::endl;
