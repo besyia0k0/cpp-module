@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:36 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 18:00:25 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/07 19:55:37 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ int main(void) {
 
 		std::cout << form << std::endl;
 		std::cout << person << std::endl;
+		std::cout << std::endl;
+
 		person.signForm(form);
+		std::cout << std::endl;
+		
 		person.executeForm(form);
 	}
 	// std::cout << YELLOW << "----------- Error Test : sign -----------" << CLOSE << std::endl;
@@ -68,9 +72,14 @@ int main(void) {
 
 		std::cout << form << std::endl;
 		std::cout << person << std::endl;
+		std::cout << std::endl;
+
 		person.signForm(form);
+		std::cout << std::endl;
+		
 		person.executeForm(form);
 	}
+	std::cin >> a;
 	std::cout << YELLOW << "----------- Error Test -----------" << CLOSE << std::endl;
 	{
 		/* Required grades: sign 72, exec 45 */
@@ -78,13 +87,22 @@ int main(void) {
 		Bureaucrat	personA("PersonA", 73);
 		Bureaucrat	personB("PersonB", 46);
 
-		std::cout << form << std::endl;
+		std::cout << form << std::endl << std::endl;
 		std::cout << personA << std::endl;
+		std::cout << std::endl;
+
 		personA.signForm(form);
 		personA.incrementGrade();
+		std::cout << std::endl;
+
 		personA.signForm(form);
+		std::cout << std::endl;
+	
+		std::cout << personB << std::endl;
 		personB.executeForm(form);
 		personB.incrementGrade();
+		std::cout << std::endl;
+
 		personB.executeForm(form);
 	}
 	std::cout << YELLOW << "------------------ Test Fin ------------------" << CLOSE << std::endl;
@@ -98,9 +116,14 @@ int main(void) {
 
 		std::cout << form << std::endl;
 		std::cout << person << std::endl;
+		std::cout << std::endl;
+
 		person.signForm(form);
+		std::cout << std::endl;
+
 		person.executeForm(form);
 	}
+	std::cin >> a;
 	std::cout << YELLOW << "-------- Error Test : exec --------" << CLOSE << std::endl;
 	{
 		/* Required grades: sign 25, exec 5 */
@@ -109,9 +132,15 @@ int main(void) {
 
 		std::cout << form << std::endl;
 		std::cout << person << std::endl;
+		std::cout << std::endl;
+
 		person.signForm(form);
+		std::cout << std::endl;
+
 		person.executeForm(form);
 		person.decrementGrade();
+		std::cout << std::endl;
+
 		person.executeForm(form);
 	}
 	std::cout << YELLOW << "------------------ Test Fin ------------------" << CLOSE << std::endl;

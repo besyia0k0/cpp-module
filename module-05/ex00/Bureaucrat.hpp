@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:34 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 09:08:45 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/07 19:15:52 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Bureaucrat {
 	private:
 		const std::string name;
 		int	grade;
-		int	checkGrade(int grade_) const;
 
+		int	checkGrade(int grade_) const;
 		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char* what() const throw();

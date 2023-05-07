@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:45:11 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 17:51:06 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/07 19:32:02 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ Form& Form::operator=(const Form& form) {
 	std::cout << GREEN << "= [ Form ] " << name << " copy assignment operator called (*do nothing*) =" << CLOSE << std::endl;
 	// name, signGrade, executeGrade is constant variable, so it cannot changed.
 	// also sign is done by special case, so it makes no sense.
+	(void)form;
 	return *this;
 }
 

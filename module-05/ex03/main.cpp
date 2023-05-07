@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:36 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/07 16:50:47 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/07 21:47:13 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ int main(void) {
 		if (shrubberyForm) {
 			std::cout << *shrubberyForm << std::endl;
 			std::cout << person << std::endl;
+			std::cout << std::endl;
+			
 			person.signForm(*shrubberyForm);
+			std::cout << std::endl;
+			
 			person.executeForm(*shrubberyForm);
 		}
 	}
@@ -43,7 +47,11 @@ int main(void) {
 		if (robotomyForm) {
 			std::cout << *robotomyForm << std::endl;
 			std::cout << person << std::endl;
+			std::cout << std::endl;
+			
 			person.signForm(*robotomyForm);
+			std::cout << std::endl;
+
 			person.executeForm(*robotomyForm);
 		}
 	}
@@ -58,7 +66,11 @@ int main(void) {
 		if (presidentialForm) {
 			std::cout << *presidentialForm << std::endl;
 			std::cout << person << std::endl;
+			std::cout << std::endl;
+
 			person.signForm(*presidentialForm);
+			std::cout << std::endl;
+
 			person.executeForm(*presidentialForm);
 		}
 	}
@@ -73,7 +85,11 @@ int main(void) {
 		if (testForm) {
 			std::cout << *testForm << std::endl;
 			std::cout << person << std::endl;
+			std::cout << std::endl;
+
 			person.signForm(*testForm);
+			std::cout << std::endl;
+
 			person.executeForm(*testForm);
 		}
 	}

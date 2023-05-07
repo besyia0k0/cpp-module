@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:02:04 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/07 19:10:28 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/07 21:46:14 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ AForm* Intern::makeForm(std::string formName, std::string formTarget) {
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
-	
 	return form;
 }
 

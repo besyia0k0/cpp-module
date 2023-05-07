@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:36 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/05 00:34:30 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/07 19:25:29 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,20 @@
 int main(void) {
 	std::cout << YELLOW << "----------- Basic Function Test -----------" << CLOSE << std::endl;
 	{
-		Bureaucrat first("first", 30);
-		Bureaucrat second("second", 30);
+		try {
+			Bureaucrat first("first", 30);
+			Bureaucrat second("second", 30);
 
-		std::cout << first << std::endl;
-		std::cout << second << std::endl;
-		first.incrementGrade();
-		second.decrementGrade();
-		std::cout << first << std::endl;
-		std::cout << second << std::endl;
+			std::cout << first << std::endl;
+			std::cout << second << std::endl;
+			first.incrementGrade();
+			second.decrementGrade();
+			std::cout << first << std::endl;
+			std::cout << second << std::endl;
+		} catch (std::exception& e) {
+			std::cout << "It will not happened" << std::endl;
+			std::cerr << e.what() << std::endl;
+		}
 	}
 	std::cout << YELLOW << "---------------- Test Fin ----------------" << CLOSE << std::endl;
 	std::cout << YELLOW << "-------- Construct Low Grade Test --------" << CLOSE << std::endl;

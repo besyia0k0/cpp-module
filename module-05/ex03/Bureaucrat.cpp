@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:31 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 17:52:03 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/07 19:52:51 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	Bureaucrat::executeForm(AForm const& aForm) {
 		aForm.execute(*this);
 		std::cout << name << " excuted " << aForm.getName() << std::endl;
 	} catch (std::exception& e) {
-		std::cerr << e.what() << std::endl;
+		std::cerr << name << " couldn't execute " << aForm.getName() << " because " << e.what() << std::endl;
 	}
 }
 

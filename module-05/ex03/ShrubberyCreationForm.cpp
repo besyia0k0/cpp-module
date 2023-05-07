@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 09:40:45 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 17:19:06 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/07 19:45:46 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm& s
 	std::cout << GREEN << "= [ ShrubberyCreationForm ] " << getName() << " copy assignment operator called (*do nothing*) =" << CLOSE << std::endl;
 	// name, signGrade, executeGrade is constant variable, so it cannot changed.
 	// also sign is done by special case, so it makes no sense.
-	shrubberyCreationForm.getName();
+	(void)shrubberyCreationForm;
 	return *this;
 }
 
@@ -38,11 +38,12 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
 void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
+	canExecute(executor);
+	
 	std::string stringFileName = executor.getName() + "_shrubbery";
 	const char* outfileName = stringFileName.c_str();
 	std::ofstream outfile(outfileName, std::ofstream::trunc);
 	
-	canExecute(executor);
 	if (outfile) {
 		outfile << "            # #### ####             " << std::endl;
 	  outfile << "          ### \\/#|### |/####        " << std::endl;
