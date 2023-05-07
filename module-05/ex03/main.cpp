@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:36 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 18:00:25 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/07 16:31:23 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,107 +14,69 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main(void) {
 	char a;
 	
-	std::cout << YELLOW << "----------- Shrubbery Function Test -----------" << CLOSE << std::endl;
-	std::cout << YELLOW << "----------- Basic Test -----------" << CLOSE << std::endl;
+	std::cout << YELLOW << "----------- Shrubbery Form Test -----------" << CLOSE << std::endl;
 	{
-		/* Required grades: sign 145, exec 137 */
-		ShrubberyCreationForm	form("shrubForm");
+		Intern intern;
 		Bureaucrat	person("Person", 20);
+		AForm* shrubberyForm = intern.makeForm("ShrubberyCreationForm", "shrubbery");
 
-		std::cout << form << std::endl;
-		std::cout << person << std::endl;
-		person.signForm(form);
-		person.executeForm(form);
-	}
-	// std::cout << YELLOW << "----------- Error Test : sign -----------" << CLOSE << std::endl;
-	// {
-	// 	/* Required grades: sign 145, exec 137 */
-	// 	ShrubberyCreationForm	form("shrubForm");
-	// 	Bureaucrat	person("PersonA", 146);
-
-	// 	std::cout << form << std::endl;
-	// 	std::cout << person << std::endl;
-	// 	person.signForm(form);
-	// 	person.incrementGrade();
-	// 	person.signForm(form);
-	// }
-	// std::cout << YELLOW << "----------- Error Test : exec -----------" << CLOSE << std::endl;
-	// {
-	// 	/* Required grades: sign 145, exec 137 */
-	// 	ShrubberyCreationForm	form("shrubForm");
-	// 	Bureaucrat	personA("PersonA", 20);
-	// 	Bureaucrat	personB("PersonB", 138);
-
-	// 	std::cout << form << std::endl;
-	// 	std::cout << personA << std::endl;
-	// 	std::cout << personB << std::endl;
-	// 	personA.signForm(form);
-	// 	personB.executeForm(form);
-	// 	personB.incrementGrade();
-	// 	personB.executeForm(form);
-	// }
-	std::cout << YELLOW << "------------------ Test Fin ------------------" << CLOSE << std::endl;
-	std::cin >> a;
-	std::cout << YELLOW << "----------- Robotomy Function Test -----------" << CLOSE << std::endl;
-	std::cout << YELLOW << "----------- Basic Test -----------" << CLOSE << std::endl;
-	{
-		/* Required grades: sign 72, exec 45 */
-		RobotomyRequestForm	form("robotomyForm");
-		Bureaucrat	person("Person", 20);
-
-		std::cout << form << std::endl;
-		std::cout << person << std::endl;
-		person.signForm(form);
-		person.executeForm(form);
-	}
-	std::cout << YELLOW << "----------- Error Test -----------" << CLOSE << std::endl;
-	{
-		/* Required grades: sign 72, exec 45 */
-		RobotomyRequestForm	form("robotomyForm");
-		Bureaucrat	personA("PersonA", 73);
-		Bureaucrat	personB("PersonB", 46);
-
-		std::cout << form << std::endl;
-		std::cout << personA << std::endl;
-		personA.signForm(form);
-		personA.incrementGrade();
-		personA.signForm(form);
-		personB.executeForm(form);
-		personB.incrementGrade();
-		personB.executeForm(form);
+		if (shrubberyForm) {
+			std::cout << *shrubberyForm << std::endl;
+			std::cout << person << std::endl;
+			person.signForm(*shrubberyForm);
+			person.executeForm(*shrubberyForm);
+		}
 	}
 	std::cout << YELLOW << "------------------ Test Fin ------------------" << CLOSE << std::endl;
 	std::cin >> a;
-	std::cout << YELLOW << "----------- Presidential Function Test -----------" << CLOSE << std::endl;
-	std::cout << YELLOW << "----------- Basic Test -----------" << CLOSE << std::endl;
+	std::cout << YELLOW << "----------- Robotomy Form Test -----------" << CLOSE << std::endl;
 	{
-		/* Required grades: sign 25, exec 5 */
-		PresidentialPardonForm	form("presidentialForm");
-		Bureaucrat	person("Person", 2);
+		Intern intern;
+		Bureaucrat	person("Person", 20);
+		AForm* robotomyForm = intern.makeForm("RobotomyRequestForm", "robotomy");
 
-		std::cout << form << std::endl;
-		std::cout << person << std::endl;
-		person.signForm(form);
-		person.executeForm(form);
-	}
-	std::cout << YELLOW << "-------- Error Test : exec --------" << CLOSE << std::endl;
-	{
-		/* Required grades: sign 25, exec 5 */
-		PresidentialPardonForm	form("presidentialForm");
-		Bureaucrat	person("Person", 5);
-
-		std::cout << form << std::endl;
-		std::cout << person << std::endl;
-		person.signForm(form);
-		person.executeForm(form);
-		person.decrementGrade();
-		person.executeForm(form);
+		if (robotomyForm) {
+			std::cout << *robotomyForm << std::endl;
+			std::cout << person << std::endl;
+			person.signForm(*robotomyForm);
+			person.executeForm(*robotomyForm);
+		}
 	}
 	std::cout << YELLOW << "------------------ Test Fin ------------------" << CLOSE << std::endl;
+	std::cin >> a;
+	std::cout << YELLOW << "----------- Presidential Form Test -----------" << CLOSE << std::endl;
+	{
+		Intern intern;
+		Bureaucrat	person("Person", 3);
+		AForm* presidentialForm = intern.makeForm("PresidentialPardonForm", "presidential");
 
+		if (presidentialForm) {
+			std::cout << *presidentialForm << std::endl;
+			std::cout << person << std::endl;
+			person.signForm(*presidentialForm);
+			person.executeForm(*presidentialForm);
+		}
+	}
+	std::cout << YELLOW << "------------------ Test Fin ------------------" << CLOSE << std::endl;
+	std::cin >> a;
+	std::cout << YELLOW << "----------- Not Exist Form Test -----------" << CLOSE << std::endl;
+	{
+		Intern intern;
+		Bureaucrat	person("Person", 3);
+		AForm* testForm = intern.makeForm("foo", "not exist");
+
+		if (testForm) {
+			std::cout << *testForm << std::endl;
+			std::cout << person << std::endl;
+			person.signForm(*testForm);
+			person.executeForm(*testForm);
+		}
+	}
+	std::cout << YELLOW << "------------------ Test Fin ------------------" << CLOSE << std::endl;
 	return 0;
 }
