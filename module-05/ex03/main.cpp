@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:33:36 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/07 21:47:13 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/10 18:37:19 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ int main(void) {
 	{
 		Intern intern;
 		Bureaucrat	person("Person", 20);
-		AForm* shrubberyForm = intern.makeForm("shrubbery creation", "shrubbery");
-
+		AForm* shrubberyForm;
+		
+		shrubberyForm = intern.makeForm("shrubbery creation", "shrubbery");
+		
 		if (shrubberyForm) {
 			std::cout << *shrubberyForm << std::endl;
 			std::cout << person << std::endl;
@@ -42,7 +44,9 @@ int main(void) {
 	{
 		Intern intern;
 		Bureaucrat	person("Person", 20);
-		AForm* robotomyForm = intern.makeForm("robotomy request", "robotomy");
+		AForm* robotomyForm;
+		
+		robotomyForm = intern.makeForm("robotomy request", "robotomy");
 
 		if (robotomyForm) {
 			std::cout << *robotomyForm << std::endl;
@@ -61,7 +65,9 @@ int main(void) {
 	{
 		Intern intern;
 		Bureaucrat	person("Person", 3);
-		AForm* presidentialForm = intern.makeForm("presidential pardon", "presidential");
+		AForm* presidentialForm;
+		
+		presidentialForm = intern.makeForm("presidential pardon", "presidential");
 
 		if (presidentialForm) {
 			std::cout << *presidentialForm << std::endl;
@@ -80,7 +86,9 @@ int main(void) {
 	{
 		Intern intern;
 		Bureaucrat	person("Person", 3);
-		AForm* testForm = intern.makeForm("foo", "not exist");
+		AForm* testForm;
+		
+		testForm = intern.makeForm("foo", "not exist");
 
 		if (testForm) {
 			std::cout << *testForm << std::endl;
