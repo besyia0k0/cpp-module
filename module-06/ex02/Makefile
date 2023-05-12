@@ -6,18 +6,18 @@
 #    By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 11:33:05 by hkong             #+#    #+#              #
-#    Updated: 2023/05/13 01:42:16 by hkong            ###   ########.fr        #
+#    Updated: 2023/05/13 02:18:17 by hkong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = ScalarConverter
+NAME = Identify
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp Base.cpp A.cpp B.cpp C.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 all : $(NAME)

@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 19:52:25 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/12 12:50:06 by hkong            ###   ########.fr       */
+/*   Created: 2023/05/13 02:14:49 by hkong             #+#    #+#             */
+/*   Updated: 2023/05/13 02:44:05 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 # include <iostream>
-# include <string>
 
 # define YELLOW "\x1B[33m"
 # define GREEN "\x1B[32m"
 # define RED "\x1B[31m"
 # define CLOSE "\x1B[0m"
 
-class ScalarConverter {
-	private:
-		
+class Base {
 	public:
-		ScalarConverter();
-		ScalarConverter(ScalarConverter& scalarConverter);
-		ScalarConverter& operator=(ScalarConverter& scalarConverter);
-		~ScalarConverter();
-
-		static void convert(std::string param_s);
+		virtual ~Base();
 };
 
 #endif
