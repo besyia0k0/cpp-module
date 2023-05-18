@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 19:52:23 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/13 01:42:05 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/18 16:13:30 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,14 @@ void	ScalarConverter::convert(std::string param_s) {
 		num = static_cast<double>(param_c[1]);
 	else {
 		num = std::strtod(param_c, &endptr);
-		if (endptr == param_c || !(endptr[0] == 0 || (endptr[0] == 'f' && endptr[1] == 0))) {
+		if (!(endptr[0] == 0 || (endptr[0] == 'f' && endptr[1] == 0 && param_s.find_first_of('.', 0) != std::string::npos \
+				&& param_s.find_first_of('.', 0) == param_s.find_last_of('.', param_s.length())))) {
 			std::cout << "char: impossible" << std::endl;
 			std::cout << "int: impossible" << std::endl;
 			std::cout << "float: impossible" << std::endl;
 			std::cout << "double: impossible" << std::endl;
 			return ;
-		} // 0f 등 check 필요
+		}
 	}
 	/* print char */
 	std::cout << "char: ";
