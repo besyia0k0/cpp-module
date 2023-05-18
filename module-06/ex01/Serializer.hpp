@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 01:43:15 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/13 02:10:59 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/18 21:48:31 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ typedef struct s_data {
 
 class Serializer {
 	private:
-
-	public:
 		Serializer();
 		Serializer(Serializer& serializer);
 		Serializer& operator=(Serializer& serializer);
+
+	public:
 		~Serializer();
 
 		static uintptr_t serialize(Data* ptr);

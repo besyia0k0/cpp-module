@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 19:52:25 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/12 12:50:06 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/18 21:47:31 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 
 class ScalarConverter {
 	private:
-		
-	public:
 		ScalarConverter();
 		ScalarConverter(ScalarConverter& scalarConverter);
 		ScalarConverter& operator=(ScalarConverter& scalarConverter);
+		
+	public:
 		~ScalarConverter();
 
 		static void convert(std::string param_s);
