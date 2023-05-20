@@ -6,12 +6,12 @@
 #    By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 11:33:05 by hkong             #+#    #+#              #
-#    Updated: 2023/05/20 11:44:32 by hkong            ###   ########.fr        #
+#    Updated: 2023/05/20 15:48:39 by hkong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = Iter
+NAME = Array
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
