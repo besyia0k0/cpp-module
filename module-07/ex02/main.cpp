@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:24:23 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/20 17:07:14 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/21 17:21:36 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ int main(void) {
 	}
 	std::cout << YELLOW << "----------- Copy Assignment Test 2: Same size -----------" << CLOSE << std::endl;
 	{
-		Array<int> test(5);
-		Array<int> newTest(5);
+		Array<double> test(5);
+		Array<double> newTest(5);
 		for (unsigned int i = 0; i < test.size(); i++)
-			test[i] = i + 1;
+			test[i] = (i + 1) * 0.1;
 		std::cout << "test: ";
 		test.printArray();
 		std::cout << "newTest: ";
