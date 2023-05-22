@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 22:18:51 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/20 11:53:23 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/22 19:28:09 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ int main(void) {
 		::iter(array, size, printAll);
 	}
 	std::cout << YELLOW << "----------- Test 2 -----------" << CLOSE << std::endl;
+	{
+		int size = 5;
+		std::string array[5] = {"hello", "my", "name", "is", "hkong"};
+
+		::iter(array, size, addIter);
+		::iter(array, size, printAll);
+	}
+	std::cout << YELLOW << "----------- Test 3 -----------" << CLOSE << std::endl;
 	{
 		int size = 5;
 		const std::string array[5] = {"hello", "my", "name", "is", "hkong"};

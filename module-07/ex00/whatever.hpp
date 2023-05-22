@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:22:41 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/18 22:17:21 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/22 19:21:13 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void swap(T& a, T& b) {
 }
 
 template <typename T>
-T min(const T& a, const T& b) {
+const T& min(const T& a, const T& b) {
 	if (a < b)
 		return a;
 	return b;
 }
 
 template <typename T>
-T max(const T& a, const T& b) {
+const T& max(const T& a, const T& b) {
 	if (a > b)
 		return a;
 	return b;

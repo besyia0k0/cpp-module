@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 22:18:49 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/20 11:52:57 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/22 19:28:31 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,18 @@ void iter(const T* array, size_t size, void (*func)(const T&)) {
 }
 
 template <typename T>
-void printAll(T& element) {
+void printAll(const T& element) {
 	std::cout << "[ " << element << " ]" << std::endl;
 }
 
 template <typename T>
 void increase(T& element) {
 	element++;
+}
+
+template <typename T>
+void addIter(T& element) {
+	element += " iter";
 }
 
 #endif
