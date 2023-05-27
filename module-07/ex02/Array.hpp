@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 11:56:05 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/20 16:53:22 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/27 21:04:24 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ class Array {
 			std::cout << GREEN << "+ [ Array ] arrSize constructor called +" << CLOSE << std::endl;
 			arr = new T[arrSize]();
 		}
-		Array(Array& array): arrSize(array.arrSize) {
+		Array(const Array& array): arrSize(array.arrSize) {
 			std::cout << GREEN << "+ [ Array ] copy constructor called +" << CLOSE << std::endl;
 			arr = new T[arrSize]();
 			for (unsigned int i = 0; i < arrSize; i++)
 				arr[i] = array.arr[i];
 		}
-		Array& operator=(Array& array) {
+		Array& operator=(const Array& array) {
 			std::cout << GREEN << "= [ Array ] copy assignment operator called =" << CLOSE << std::endl;
 			if (arr == array.arr) {
 				arrSize = array.arrSize;

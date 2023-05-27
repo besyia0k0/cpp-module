@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 09:40:48 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 17:03:54 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/27 21:06:28 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class RobotomyRequestForm: public AForm {
 
 	public:
 		RobotomyRequestForm(std::string name_);
-		RobotomyRequestForm(RobotomyRequestForm& robotomyRequestForm);
-		RobotomyRequestForm& operator=(RobotomyRequestForm& robotomyRequestForm);
+		RobotomyRequestForm(const RobotomyRequestForm& robotomyRequestForm);
+		RobotomyRequestForm& operator=(const RobotomyRequestForm& robotomyRequestForm);
 		~RobotomyRequestForm();
 
 		void execute(Bureaucrat const& executor) const;

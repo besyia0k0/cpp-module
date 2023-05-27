@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 19:52:25 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/18 21:47:31 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/27 21:05:24 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 class ScalarConverter {
 	private:
 		ScalarConverter();
-		ScalarConverter(ScalarConverter& scalarConverter);
-		ScalarConverter& operator=(ScalarConverter& scalarConverter);
+		ScalarConverter(const ScalarConverter& scalarConverter);
+		ScalarConverter& operator=(const ScalarConverter& scalarConverter);
 		
 	public:
 		~ScalarConverter();

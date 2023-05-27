@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 09:40:45 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/07 19:45:46 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/27 21:06:20 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string name_): AForm(name_, 14
 	std::cout << GREEN << "+ [ ShrubberyCreationForm ] " << getName() << " constructor called +" << CLOSE << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm& shrubberyCreationForm): AForm(shrubberyCreationForm.getName(), shrubberyCreationForm.getSignGrade(), shrubberyCreationForm.getExecuteGrade()) {
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& shrubberyCreationForm): AForm(shrubberyCreationForm.getName(), shrubberyCreationForm.getSignGrade(), shrubberyCreationForm.getExecuteGrade()) {
 	std::cout << GREEN << "+ [ ShrubberyCreationForm ] " << getName() << " copy constructor called +" << CLOSE << std::endl;
 }
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm& shrubberyCreationForm) {
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& shrubberyCreationForm) {
 	std::cout << GREEN << "= [ ShrubberyCreationForm ] " << getName() << " copy assignment operator called (*do nothing*) =" << CLOSE << std::endl;
 	// name, signGrade, executeGrade is constant variable, so it cannot changed.
 	// also sign is done by special case, so it makes no sense.

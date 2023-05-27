@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 19:52:23 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/18 16:13:30 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/27 21:05:30 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ ScalarConverter::ScalarConverter() {
 	std::cout << GREEN << "+ [ ScalarConverter ] default constructor called +" << CLOSE << std::endl;
 }
 
-ScalarConverter::ScalarConverter(ScalarConverter& scalarConverter) {
+ScalarConverter::ScalarConverter(const ScalarConverter& scalarConverter) {
 	std::cout << GREEN << "+ [ ScalarConverter ] copy constructor called +" << CLOSE << std::endl;
 	(void)scalarConverter; /* do nothing */
 }
 
-ScalarConverter& ScalarConverter::operator=(ScalarConverter& scalarConverter) {
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& scalarConverter) {
 	std::cout << GREEN << "= [ ScalarConverter ] copy assignment operator called =" << CLOSE << std::endl;
 	(void)scalarConverter; /* do nothing */
 	return *this;

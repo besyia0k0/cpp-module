@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 09:40:43 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/06 17:03:43 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/27 21:06:07 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class ShrubberyCreationForm: public AForm {
 
 	public:
 		ShrubberyCreationForm(std::string name_);
-		ShrubberyCreationForm(ShrubberyCreationForm& shrubberyCreationForm);
-		ShrubberyCreationForm& operator=(ShrubberyCreationForm& shrubberyCreationForm);
+		ShrubberyCreationForm(const ShrubberyCreationForm& shrubberyCreationForm);
+		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& shrubberyCreationForm);
 		~ShrubberyCreationForm();
 
 		void execute(Bureaucrat const& executor) const;

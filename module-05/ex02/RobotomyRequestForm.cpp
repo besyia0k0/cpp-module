@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 09:40:50 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/07 19:43:26 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/27 21:06:35 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ RobotomyRequestForm::RobotomyRequestForm(std::string name_): AForm(name_, 72, 45
 	std::cout << GREEN << "+ [ RobotomyRequestForm ] " << getName() << " constructor called +" << CLOSE << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm& robotomyRequestForm): AForm(robotomyRequestForm.getName(), robotomyRequestForm.getSignGrade(), robotomyRequestForm.getExecuteGrade()) {
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& robotomyRequestForm): AForm(robotomyRequestForm.getName(), robotomyRequestForm.getSignGrade(), robotomyRequestForm.getExecuteGrade()) {
 	std::cout << GREEN << "+ [ RobotomyRequestForm ] " << getName() << " copy constructor called +" << CLOSE << std::endl;
 }
 
-RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm& robotomyRequestForm) {
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& robotomyRequestForm) {
 	std::cout << GREEN << "= [ RobotomyRequestForm ] " << getName() << " copy assignment operator called (*do nothing*) =" << CLOSE << std::endl;
 	// name, signGrade, executeGrade is constant variable, so it cannot changed.
 	// also sign is done by special case, so it makes no sense.

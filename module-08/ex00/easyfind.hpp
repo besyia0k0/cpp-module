@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:55:38 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/22 22:17:23 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/27 19:20:38 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <array>
 # include <vector>
 # include <deque>
-# include <stack>
-# include <queue>
 # include <list>
 
 # define YELLOW "\x1B[33m"

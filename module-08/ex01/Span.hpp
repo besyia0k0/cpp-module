@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/13 01:43:15 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/27 21:04:43 by hkong            ###   ########.fr       */
+/*   Created: 2023/05/27 19:21:50 by hkong             #+#    #+#             */
+/*   Updated: 2023/05/27 21:01:43 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
-
+#ifndef SPAN_HPP
+# define SPAN_HPP
 # include <iostream>
+# include <vector>
+# include <algorithm>
 
 # define YELLOW "\x1B[33m"
 # define GREEN "\x1B[32m"
 # define RED "\x1B[31m"
 # define CLOSE "\x1B[0m"
 
-typedef struct s_data {
-	char		data_char;
-	int			data_int;
-	double	data_double;
-} Data;
-
-class Serializer {
+class Span {
 	private:
-		Serializer();
-		Serializer(const Serializer& serializer);
-		Serializer& operator=(const Serializer& serializer);
+		std::vector<int> array;
+		unsigned int	size;
+		Span();
 
 	public:
-		~Serializer();
+		Span(unsigned int _size);
+		Span(const Span& span);
+		Span& operator=(const Span& span);
+		~Span();
 
-		static uintptr_t serialize(Data* ptr);
-		static Data*	deserialize(uintptr_t raw);
+		void addNumber(int n);
+		int shortestSpan();
+		int longestSpan();
 };
 
 #endif

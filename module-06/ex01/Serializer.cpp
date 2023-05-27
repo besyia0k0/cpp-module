@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 01:43:13 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/18 16:21:21 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/27 21:04:55 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ Serializer::Serializer() {
 	std::cout << GREEN << "+ [ Serializer ] default constructor called +" << CLOSE << std::endl;
 }
 
-Serializer::Serializer(Serializer& serializer) {
+Serializer::Serializer(const Serializer& serializer) {
 	std::cout << GREEN << "+ [ Serializer ] copy constructor called +" << CLOSE << std::endl;
 	(void)serializer; /* do nothing */
 }
 
-Serializer& Serializer::operator=(Serializer& serializer) {
+Serializer& Serializer::operator=(const Serializer& serializer) {
 	std::cout << GREEN << "= [ Serializer ] copy assignment operator called =" << CLOSE << std::endl;
 	(void)serializer; /* do nothing */
 	return *this;

@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:55:40 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/22 22:21:38 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/27 19:20:44 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,29 +38,37 @@ int main(void) {
 		std::cout << "[ Fail ]" << std::endl;
 		::easyfindTest(test, 10);
 	}
-	std::cout << YELLOW << "----------- Vector Test -----------" << CLOSE << std::endl;
+	std::cout << YELLOW << "----------- Deque Test -----------" << CLOSE << std::endl;
 	{
-		std::vector<int> test;
+		std::deque<int> test;
 
-		test.push_back(5);
+		test.push_front(5);
 		test.push_back(6);
-		test.push_back(7);
+		test.push_front(7);
 		test.push_back(1);
-		test.push_back(3);
+		test.push_front(3);
 		test.push_back(4);
-		test.push_back(9);
+		test.push_front(9);
 		std::cout << "[ Success ]" << std::endl;
-		::easyfindTest(test, 9);
+		::easyfindTest(test, 3);
 		std::cout << "[ Fail ]" << std::endl;
 		::easyfindTest(test, 10);
 	}
-	std::cout << YELLOW << "----------- Copy Assignment Test 1: Different size -----------" << CLOSE << std::endl;
+	std::cout << YELLOW << "----------- List Test -----------" << CLOSE << std::endl;
 	{
-		
-	}
-	std::cout << YELLOW << "----------- Copy Assignment Test 2: Same size -----------" << CLOSE << std::endl;
-	{
+		std::list<int> test;
 
+		test.push_front(5);
+		test.push_back(6);
+		test.push_front(7);
+		test.push_back(1);
+		test.push_front(3);
+		test.push_back(4);
+		test.push_front(9);
+		std::cout << "[ Success ]" << std::endl;
+		::easyfindTest(test, 3);
+		std::cout << "[ Fail ]" << std::endl;
+		::easyfindTest(test, 10);
 	}
 	std::cout << YELLOW << "----------- Test Fin -----------" << CLOSE << std::endl;
 }
