@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 19:21:50 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/27 21:02:20 by hkong            ###   ########.fr       */
+/*   Updated: 2023/05/27 22:06:05 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,34 @@ Span::~Span() {
 	std::cout << GREEN << "- [ Span ] destructor called -" << CLOSE << std::endl;
 }
 
+std::vector<int>::iterator Span::begin() {
+	return this->array.begin();
+};
+
+std::vector<int>::iterator Span::end() {
+	return this->array.end();
+};
+
 void Span::addNumber(int n) {
 	if (this->size == this->array.size())
 		throw std::out_of_range("[Error] Span is full");
 	this->array.push_back(n);
 }
 
-int	Span::shortestSpan() {
+void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+	for (; begin != end ; begin++)
+		this->addNumber(*begin);
+}
+
+void	Span::printAll() const {
+	std::cout << "[ ";
+	for (std::vector<int>::const_iterator it = this->array.begin(); it != this->array.end(); it++) {
+		std::cout << *it << " ";
+	}
+	std::cout << "]" << std::endl;
+}
+
+int	Span::shortestSpan() const {
 	if (this->array.size() == 0)
 		throw std::bad_function_call();
 
@@ -62,7 +83,7 @@ int	Span::shortestSpan() {
 	return result;
 }
 
-int Span::longestSpan() {
+int Span::longestSpan() const {
 	std::vector<int> sortedArray(this->array);
 
 	sort(sortedArray.begin(), sortedArray.end());
