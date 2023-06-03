@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 11:41:51 by hkong             #+#    #+#             */
-/*   Updated: 2023/06/03 12:22:20 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/03 16:19:52 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define MUTANTSTACK_HPP
 # include <iostream>
 # include <stack>
-# include <deque>
-std::deque<int> a;
 
 template <typename T>
 class MutantStack: public std::stack<T> {
@@ -33,7 +31,6 @@ class MutantStack: public std::stack<T> {
 			return *this;
 		}
 		~MutantStack() { }
-
 
 		iterator begin() { return this->c.begin(); }
 		const_iterator begin() const { return this->c.begin(); }
