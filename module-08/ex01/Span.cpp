@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 19:21:50 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/27 22:06:05 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/03 17:05:01 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void	Span::printAll() const {
 }
 
 int	Span::shortestSpan() const {
-	if (this->array.size() == 0)
-		throw std::bad_function_call();
+	if (this->array.size() < 2)
+		throw std::out_of_range("[Error] Span size too small");
 
 	std::vector<int> sortedArray(this->array);
 	int	result = INT_MAX;
@@ -84,6 +84,9 @@ int	Span::shortestSpan() const {
 }
 
 int Span::longestSpan() const {
+	if (this->array.size() < 2)
+		throw std::out_of_range("[Error] Span size too small");
+
 	std::vector<int> sortedArray(this->array);
 
 	sort(sortedArray.begin(), sortedArray.end());

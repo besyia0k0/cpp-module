@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 19:21:43 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/27 22:08:00 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/03 17:06:03 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int main()
 		sp.printAll();
 		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
 		std::cout << "Largest Span: " << sp.longestSpan() << std::endl;
-	} catch (std::bad_function_call& e) {
-		std::cerr << "[Error] Bad function call" << std::endl;
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
@@ -44,8 +42,6 @@ int main()
 		sp.printAll();
 		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
 		std::cout << "Largest Span: " << sp.longestSpan() << std::endl;
-	} catch (std::bad_function_call& e) {
-		std::cerr << "[Error] Bad function call" << std::endl;
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
@@ -53,10 +49,9 @@ int main()
 	try {
 		Span sp = Span(5);
 
+		sp.addNumber(42);
 		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
 		std::cout << "Largest Span: " << sp.longestSpan() << std::endl;
-	} catch (std::bad_function_call& e) {
-		std::cerr << "[Error] Bad function call" << std::endl;
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
@@ -78,8 +73,6 @@ int main()
 		largeSp.printAll();
 		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
 		std::cout << "Largest Span: " << sp.longestSpan() << std::endl;
-	} catch (std::bad_function_call& e) {
-		std::cerr << "[Error] Bad function call" << std::endl;
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
@@ -101,8 +94,6 @@ int main()
 		largeSp.printAll();
 		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
 		std::cout << "Largest Span: " << sp.longestSpan() << std::endl;
-	} catch (std::bad_function_call& e) {
-		std::cerr << "[Error] Bad function call" << std::endl;
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}

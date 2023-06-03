@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:55:40 by hkong             #+#    #+#             */
-/*   Updated: 2023/05/27 19:20:44 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/03 17:01:52 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(void) {
 	std::cout << YELLOW << "----------- Array Test -----------" << CLOSE << std::endl;
 	{
-		std::array<int, 8> test = { 2, 6, 5, 9, 8, 4, 3, 1 };
+		const std::array<int, 8> test = { 2, 6, 5, 9, 8, 4, 3, 1 };
 
 		std::cout << "[ Success ]" << std::endl;
 		::easyfindTest(test, 9);

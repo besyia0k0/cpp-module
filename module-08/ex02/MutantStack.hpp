@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 11:41:51 by hkong             #+#    #+#             */
-/*   Updated: 2023/06/03 16:19:52 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/03 17:09:21 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ class MutantStack: public std::stack<T> {
 		const_reverse_iterator rbegin() const { return this->c.rbegin(); }
 		reverse_iterator rend() { return this->c.rend(); }
 		const_reverse_iterator rend() const { return this->c.rend(); }
-		const_reverse_iterator crbegin() const throw() { return this->c.crbegin(); }
-		const_reverse_iterator crend() const throw() { return this->c.crend(); }
 };
 
 

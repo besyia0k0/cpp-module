@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 11:41:54 by hkong             #+#    #+#             */
-/*   Updated: 2023/06/03 16:41:13 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/03 17:10:32 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int main()
 		mstack.push(737);
 		mstack.push(0);
 
+		// MutantStack<int>::const_iterator it = mstack.begin();
+		// MutantStack<int>::const_iterator ite = mstack.end();
 		MutantStack<int>::iterator it = mstack.begin();
 		MutantStack<int>::iterator ite = mstack.end();
 		++it;
