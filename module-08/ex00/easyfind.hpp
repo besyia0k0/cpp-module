@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:55:38 by hkong             #+#    #+#             */
-/*   Updated: 2023/06/03 17:03:06 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/08 16:19:07 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <vector>
 # include <deque>
 # include <list>
+# include <algorithm>
 
 # define YELLOW "\x1B[33m"
 # define GREEN "\x1B[32m"
@@ -26,24 +27,12 @@
 
 template <typename T>
 typename T::iterator	easyfind(T& container, int target) {
-	typename T::iterator it = container.begin();
-
-	for (; it != container.end(); it++) {
-		if (*it == target)
-			break;
-	}
-	return it;
+	return std::find(container.begin(), container.end(), target);
 }
 
 template <typename T>
 typename T::const_iterator	easyfind(const T& container, int target) {
-	typename T::const_iterator it = container.begin();
-
-	for (; it != container.end(); it++) {
-		if (*it == target)
-			break;
-	}
-	return it;
+	return std::find(container.begin(), container.end(), target);
 }
 
 template <typename T>

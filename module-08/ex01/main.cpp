@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 19:21:43 by hkong             #+#    #+#             */
-/*   Updated: 2023/06/03 17:06:03 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/08 16:24:15 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int main()
 		largeSp.addNumber(7);
 		largeSp.addNumber(sp.begin(), sp.end());
 		largeSp.printAll();
-		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
-		std::cout << "Largest Span: " << sp.longestSpan() << std::endl;
+		std::cout << "Shortest Span: " << largeSp.shortestSpan() << std::endl;
+		std::cout << "Largest Span: " << largeSp.longestSpan() << std::endl;
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
@@ -92,8 +92,8 @@ int main()
 		largeSp.addNumber(7);
 		largeSp.addNumber(sp.begin(), sp.end());
 		largeSp.printAll();
-		std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
-		std::cout << "Largest Span: " << sp.longestSpan() << std::endl;
+		std::cout << "Shortest Span: " << largeSp.shortestSpan() << std::endl;
+		std::cout << "Largest Span: " << largeSp.longestSpan() << std::endl;
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
