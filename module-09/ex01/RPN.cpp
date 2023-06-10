@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 15:16:55 by hkong             #+#    #+#             */
-/*   Updated: 2023/06/10 09:31:33 by hkong            ###   ########.fr       */
+/*   Created: 2023/06/10 10:53:08 by hkong             #+#    #+#             */
+/*   Updated: 2023/06/10 11:05:55 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BITCOINEXCHANGE_HPP
-# define BITCOINEXCHANGE_HPP
+#include "RPN.hpp"
 
-# include <iostream>
-# include <fstream>
-# include <sstream>
-# include <ctime>
-# include <string>
-# include <map> 
+void rpn(std::string str) {
+	std::stringstream ss(str);
+	std::string tmp;
 
-void exchangeBitcoin(std::string fileName);
-void exchangeLine(std::string line, std::map<std::string, double> database);
-std::map<std::string, double> getDatabase(void);
+	while (ss >> tmp) {
+		if (isdigit(tmp))
+	}
 
-void printDB(std::map<std::string, double> database);
-
-#endif
+}
