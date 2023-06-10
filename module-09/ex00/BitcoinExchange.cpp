@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 15:16:57 by hkong             #+#    #+#             */
-/*   Updated: 2023/06/10 09:31:34 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/10 15:11:50 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,15 +134,4 @@ static bool checkDate(std::string date) {
 		}
 	}
 	return true;
-}
-
-void printDB(std::map<std::string, double> database) {
-std::map<std::string, double>::iterator it = database.begin();
- 
-  // Iterate through the map and print the elements
-  while (it != database.end())
-  {
-    std::cout << "Key: " << it->first << ", Value: " << it->second << std::endl;
-    ++it;
-  }
 }

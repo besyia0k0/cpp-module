@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 15:16:55 by hkong             #+#    #+#             */
-/*   Updated: 2023/06/10 09:31:33 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/10 15:11:56 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@
 # include <string>
 # include <map> 
 
-void exchangeBitcoin(std::string fileName);
-void exchangeLine(std::string line, std::map<std::string, double> database);
 std::map<std::string, double> getDatabase(void);
 
-void printDB(std::map<std::string, double> database);
+void exchangeBitcoin(std::string fileName);
+void exchangeLine(std::string line, std::map<std::string, double> database);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 10:53:10 by hkong             #+#    #+#             */
-/*   Updated: 2023/06/10 10:57:46 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/10 15:52:55 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@
 # include <string>
 # include <stack>
 
-
+void rpn(std::string str);
 
 #endif
