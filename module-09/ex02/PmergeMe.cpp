@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:45:27 by hkong             #+#    #+#             */
-/*   Updated: 2023/06/12 22:31:45 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/13 21:07:58 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,74 +30,104 @@ std::vector<int> checkInput(int argc, char **argv) {
 	return input;
 }
 
-void printVector(std::vector<int> vec) {
-	for (size_t i = 0; i < vec.size(); i++)
-		std::cout << vec[i] << " ";
-	std::cout << std::endl;
-}
-
 bool compare(std::pair<int, int> a, std::pair<int, int> b) {
 	return a.first < b.first;
 }
 
-std::vector<int> fordJohnson(std::vector<int> input) {
-	int jacobsthal[] = { 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923, 21845, 43691, 87381, 174763, 349525};
-	std::vector<std::pair<int, int> > pairs;
-	std::vector<std::pair<int, int> >::iterator pairIt;
-	std::vector<int>::iterator resultIt, inputIt;
-	std::vector<int> result;
-	int jacobIdx = 0;
-	bool isOdd = input.size() % 2 != 0;
+std::vector<int> vecMainChain(std::vector<int> result, std::vector<std::pair<int, int> > pairs, size_t inputSize, int lastElem) {
+	size_t jacobsthal[20] = { 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923, 21845, 43691, 87381, 174763, 349525};
+	size_t pendSize = inputSize / 2 - 1;
+	std::vector<int>::iterator resultIt = result.begin();
+	std::pair<int, int> target;
+	int jacobIdx = 0, lastVisited = 1, idx = 1;
 
-	for (size_t i = 0; i < input.size() - 1; i += 2) {
-		if (input[i] > input[i + 1])
-			pairs.push_back(std::make_pair(input[i], input[i + 1]));
-		else 
-			pairs.push_back(std::make_pair(input[i + 1], input[i]));
-	}
-
-	sort(pairs.begin(), pairs.end(), compare);
-	for (pairIt = pairs.begin(); pairIt != pairs.end(); pairIt++) {
-		result.push_back((*pairIt).first);
-	}
-
-
-	std::pair<int, int> singlePair;
-	int lastVisited = 1, idx = 1;
-	resultIt = result.begin();
-
-	//기존 jcobit값 lastvisited로 갱신, jcobit++, jcobit값 idx로 갱신 -> 그 차이만큼 이터레이터 옮겨야 함
-
-	result.insert(result.begin(), pairs.front().second);
-	while ((isOdd ? input.size() - 1 : input.size()) > result.size()) {
+	while (pendSize-- > 0) {
 		if (lastVisited == idx) {
 			lastVisited = jacobsthal[jacobIdx];
 			jacobIdx++;
-			idx = (unsigned long)jacobsthal[jacobIdx] <= input.size() / 2 ? jacobsthal[jacobIdx]: input.size()/2 ;
-			singlePair = pairs[idx - 1];
-			while (singlePair.first != *resultIt)
+			idx = jacobsthal[jacobIdx] <= inputSize / 2 ? jacobsthal[jacobIdx] : inputSize / 2;
+			target = pairs[idx - 1];
+			while (target.first != *resultIt)
 				resultIt++;
 		} else {
-			singlePair = pairs[idx - 1];
-			while (singlePair.first != *resultIt)
+			target = pairs[idx - 1];
+			while (target.first != *resultIt)
 				resultIt--;
 		}
-		inputIt = std::lower_bound(result.begin(), resultIt, singlePair.second);
-		result.insert(--inputIt, singlePair.second);
+		result.pop_back();
+		result.insert(std::lower_bound(result.begin(), resultIt, target.second), target.second);
+		resultIt++;
+		idx--;
 	}
-	if (isOdd){
-		inputIt = std::lower_bound(result.begin(), resultIt, input.back());
-		result.insert(--inputIt, input.back());
+	if (inputSize % 2 == 1){
+		result.pop_back();
+		result.insert(std::lower_bound(result.begin(), result.end(), lastElem), lastElem);
 	}
 	return result;
+}
 
+std::list<int> listMainChain(std::list<int> result, std::list<std::pair<int, int> > pairs, size_t inputSize, int lastElem) {
+	size_t jacobsthal[20] = { 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923, 21845, 43691, 87381, 174763, 349525};
+	size_t pendSize = inputSize / 2 - 1;
+	std::list<int>::iterator resultIt = result.begin();
+	std::list<std::pair<int, int> >::iterator pairIt = pairs.begin();
+	std::pair<int, int> target;
+	int jacobIdx = 0, lastVisited = 1, idx = 1;
 
-	// while (large.size()) {
-	// 	int target = large.top();
-	// 	large.pop();
+	while (pendSize-- > 0) {
+		if (lastVisited == idx) {
+			idx = jacobsthal[jacobIdx + 1] <= inputSize / 2 ? jacobsthal[jacobIdx + 1] : inputSize / 2;
+			for (int i = lastVisited; i < idx; i++)
+				pairIt++;
+			lastVisited = jacobsthal[jacobIdx];
+			jacobIdx++;
+			target = *pairIt;
+			while (target.first != *resultIt)
+				resultIt++;
+		} else {
+			target = *pairIt;
+			while (target.first != *resultIt)
+				resultIt--;
+		}
+		result.pop_back();
+		result.insert(std::lower_bound(result.begin(), resultIt, target.second), target.second);
+		resultIt++;
+		pairIt--;
+		idx--;
+	}
+	if (inputSize % 2 == 1){
+		result.pop_back();
+		result.insert(std::lower_bound(result.begin(), result.end(), lastElem), lastElem);
+	}
+	return result;
+}
 
-	// 	for (typename T::iterator it = small.begin(); it != small.end(); it++) {
-	// 		if ()
-	// 	}		
-	// }
+std::vector<int> vecFordJohnson(std::vector<int> input) {
+	std::vector<std::pair<int, int> > pairs;
+	std::vector<int> result;
+
+	if (input.size() == 1)
+		return input;
+	/* make main array */
+	pairs = makePairs<std::vector<std::pair<int, int> > >(input);
+	sort(pairs.begin(), pairs.end(), compare);
+	result = makeResultBase<std::vector<int>, std::vector<std::pair<int, int> > >(pairs, input.size());
+
+	/* do main chain */
+	return vecMainChain(result, pairs, input.size(), input.back());
+}
+
+std::list<int> listFordJohnson(std::vector<int> input) {
+	std::list<std::pair<int, int> > pairs;
+	std::list<int> result;
+
+	if (input.size() == 1)
+		return std::list<int>(1, input[0]);
+	/* make main array */
+	pairs = makePairs<std::list<std::pair<int, int> > >(input);
+	pairs.sort(compare);
+	result = makeResultBase<std::list<int>, std::list<std::pair<int, int> > >(pairs, input.size());
+
+	/* do main chain */
+	return listMainChain(result, pairs, input.size(), input.back());
 }
