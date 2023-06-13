@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:45:24 by hkong             #+#    #+#             */
-/*   Updated: 2023/06/13 21:11:34 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/13 21:59:52 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ PC makePairs(std::vector<int> input) {
 }
 
 template <typename C, typename PC>
-C makeResultBase(PC pairInput, size_t inputSize) {
+C makeResultBase(PC pairInput) {
 	typename PC::iterator pairIt;
 	C result;
 
@@ -47,7 +47,6 @@ C makeResultBase(PC pairInput, size_t inputSize) {
 		result.push_back((*pairIt).first);
 	}
 	result.insert(result.begin(), pairInput.front().second);
-	result.resize(inputSize);
 	return result;
 }
 

@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 15:16:57 by hkong             #+#    #+#             */
-/*   Updated: 2023/06/10 15:11:50 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/13 22:30:13 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void exchangeLine(std::string line, std::map<std::string, double> database) {
 	find = std::upper_bound(database.begin(), database.end(), date, comp);
 	if (find == database.begin())
 		throw std::runtime_error("Error: there is no matched data.");
-	std::cout << (--find)->first << " => " << fValue << " = " << find->second * fValue << std::endl;	
+	std::cout << date << "=> " << fValue << " = " << (--find)->second * static_cast<double>(fValue) << std::endl;	
 }
 
 std::map<std::string, double> getDatabase(void) {
@@ -110,6 +110,9 @@ static bool checkDate(std::string date) {
 	struct tm tStruct;
 	char c;
 	
+	/* 2000-01-01 */
+	if (date.find('-', 0) != 4 || date.find('-', 5) != 7 || !(date.find(' ', 0) == std::string::npos ? date.length() == 10 : date.length() == 11))
+		throw std::runtime_error("Error: invalid date format");
 	if (!(ssDate >> tStruct.tm_year) || !(ssDate >> c) || c != '-' || \
 			!(ssDate >> tStruct.tm_mon) || !(ssDate >> c) || c != '-' || \
 			!(ssDate >> tStruct.tm_mday)) {

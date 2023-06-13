@@ -6,7 +6,7 @@
 /*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:45:27 by hkong             #+#    #+#             */
-/*   Updated: 2023/06/13 21:07:58 by hkong            ###   ########.fr       */
+/*   Updated: 2023/06/13 22:00:00 by hkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,16 +89,13 @@ std::list<int> listMainChain(std::list<int> result, std::list<std::pair<int, int
 			while (target.first != *resultIt)
 				resultIt--;
 		}
-		result.pop_back();
 		result.insert(std::lower_bound(result.begin(), resultIt, target.second), target.second);
 		resultIt++;
 		pairIt--;
 		idx--;
 	}
-	if (inputSize % 2 == 1){
-		result.pop_back();
+	if (inputSize % 2 == 1)
 		result.insert(std::lower_bound(result.begin(), result.end(), lastElem), lastElem);
-	}
 	return result;
 }
 
@@ -111,7 +108,8 @@ std::vector<int> vecFordJohnson(std::vector<int> input) {
 	/* make main array */
 	pairs = makePairs<std::vector<std::pair<int, int> > >(input);
 	sort(pairs.begin(), pairs.end(), compare);
-	result = makeResultBase<std::vector<int>, std::vector<std::pair<int, int> > >(pairs, input.size());
+	result = makeResultBase<std::vector<int>, std::vector<std::pair<int, int> > >(pairs);
+	result.resize(input.size());
 
 	/* do main chain */
 	return vecMainChain(result, pairs, input.size(), input.back());
@@ -126,7 +124,7 @@ std::list<int> listFordJohnson(std::vector<int> input) {
 	/* make main array */
 	pairs = makePairs<std::list<std::pair<int, int> > >(input);
 	pairs.sort(compare);
-	result = makeResultBase<std::list<int>, std::list<std::pair<int, int> > >(pairs, input.size());
+	result = makeResultBase<std::list<int>, std::list<std::pair<int, int> > >(pairs);
 
 	/* do main chain */
 	return listMainChain(result, pairs, input.size(), input.back());
