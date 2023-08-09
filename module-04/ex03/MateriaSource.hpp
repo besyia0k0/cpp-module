@@ -1,22 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/01 17:03:36 by hkong             #+#    #+#             */
-/*   Updated: 2023/04/01 17:04:33 by hkong            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
-
-#include "IMateriaSource.hpp"
+# include "IMateriaSource.hpp"
 
 class MateriaSource: public IMateriaSource {
-	
+  public:
+    MateriaSource();
+    MateriaSource(const MateriaSource& materiaSource);
+    MateriaSource& operator=(const MateriaSource& materiaSource);
+    virtual ~MateriaSource();
+
+    void learnMateria(AMateria* aMateria);
+  	AMateria* createMateria(const std::string& type);
+
+  private:
+    AMateria* sources_[4];
 };
+
 
 #endif

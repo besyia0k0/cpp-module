@@ -1,23 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: hkong <hkong@student.42seoul.kr>           +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/20 11:33:05 by hkong             #+#    #+#              #
-#    Updated: 2023/04/01 16:31:09 by hkong            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-
-NAME = PureVirtual
+NAME = ex03
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 RM = rm -f
 
-SRCS = main.cpp AAnimal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 all : $(NAME)
